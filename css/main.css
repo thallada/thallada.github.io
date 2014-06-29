@@ -1,0 +1,353 @@
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+
+/* Box sizing. Courtesy of Paul Irish
+ * (http://www.paulirish.com/2012/box-sizing-border-box-ftw/) */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Global Reset */
+/** {*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+/*}*/
+
+/*makes the page overflow, so commenting out for now*/
+/*html, body { height: 100%; }*/
+
+/*body {*/
+  /*background-color: #FFF;*/
+  /*font: 13.34px Helvetica, Arial, sans-serif;*/
+  /*font-size: small;*/
+  /*text-align: center;*/
+/*}*/
+
+/*h1, h2, h3, h4, h5, h6 {*/
+  /*font-size: 100%; }*/
+
+/*h1 { margin-bottom: 1em; }*/
+/*p { margin: 1em 0; }*/
+
+/*a         { color: #00a; }*/
+/*a:hover   { color: #000; }*/
+/*a:visited { color: #a0a; }*/
+
+/*****************************************************************************/
+/*
+/* Grid
+/*
+/*****************************************************************************/
+
+/* Grid. Courtesy of Adam Kaplan (http://www.adamkaplan.me/grid/) */
+.container {
+  margin: 0 auto;
+  max-width: 48rem;
+  width: 90%;
+}
+
+@media (min-width: 40rem) {
+  .column {
+    float: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .column.full { width: 100%; }
+  .column.two-thirds { width: 66.7%; }
+  .column.half { width: 50%; }
+  .column.third { width: 33.3%; }
+  .column.fourth { width: 25%; }
+  .column.three-fourths { width: 75%; }
+  .column.flow-opposite { float: right; }  
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+ 
+.clearfix:after {
+  clear: both;
+}
+ 
+.clearfix {
+  *zoom: 1;
+}
+
+@media (min-width: 40rem) {
+  .column.flow-opposite { float: right; }
+}
+
+/* More suggestions from Jorden Lev (http://jordanlev.github.io/grid/) */
+@-webkit-viewport {width: device-width;}
+@-moz-viewport {width: device-width;}
+@-ms-viewport {width: device-width;}
+@-o-viewport {width: device-width;}
+@viewport {width: device-width;}
+
+img { width: auto; max-width: 100%; height: auto; }
+
+/* By me */
+.hide-mobile {
+  display: none;
+}
+
+@media (min-width: 40rem) {
+  .hide-desktop { display: none }
+  .hide-mobile { }
+}
+
+/*****************************************************************************/
+/*
+/* Home
+/*
+/*****************************************************************************/
+.posts {
+  list-style-type: none;
+  margin-bottom: 2em;
+}
+
+.posts li {
+  line-height: 1.75em;
+}
+
+.posts span {
+  color: #aaa;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 80%;
+}
+
+/*****************************************************************************/
+/*
+/* Site
+/*
+/*****************************************************************************/
+
+.site {
+  font-size: 115%;
+  text-align: justify;
+  width: 42em;
+  margin: 3em auto 2em;
+  line-height: 1.5em;
+}
+
+.header a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.title {
+  display: inline-block;
+  margin-bottom: 2em;
+}
+
+.title a {
+  color: #a00;
+}
+
+.title a:hover {
+  color: #000;
+}
+
+.header a.extra {
+  color: #aaa;
+  margin-left: 1em;
+}
+
+.header a.extra:hover {
+  color: #000;
+}
+
+.meta {
+  color: #aaa;
+}
+
+.footer {
+  font-size: 80%;
+  color: #666;
+  border-top: 4px solid #eee;
+  margin-top: 2em;
+  overflow: hidden;
+}
+
+.footer .contact {
+  float: left;
+  margin-right: 3em;
+}
+
+.footer .contact a {
+  color: #8085C1;
+}
+
+.footer .rss {
+  margin-top: 1.1em;
+  margin-right: -.2em;
+  float: right;
+}
+
+.footer .rss img {
+  border: 0;
+}
+
+/*****************************************************************************/
+/*
+/* Posts
+/*
+/*****************************************************************************/
+
+/* standard */
+.post pre {
+  border: 1px solid #ddd;
+  background-color: #eef;
+  padding: 0 .4em;
+}
+
+.post ul, .post ol {
+  margin-left: 1.35em;
+}
+
+.post code {
+  border: 1px solid #ddd;
+  background-color: #eef;
+  padding: 0 .2em;
+}
+
+.post pre code {
+  border: none;
+}
+
+/* terminal */
+.post pre.terminal {
+  border: 1px solid #000;
+  background-color: #333;
+  color: #FFF;
+}
+
+.post pre.terminal code {
+  background-color: #333;
+}
+
+/*****************************************************************************/
+/*
+/* Homepage
+/*
+/*****************************************************************************/
+
+#home {
+  font-family: 'Open Sans', Arial, sans-serif;
+  color: #444;
+  display: block;
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+/* credit to http://codepen.io/bennettfeely/pen/Ftczh for a lot of this css */
+
+.card {
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+  box-shadow: 0 1px 2px #aaa;
+  background: white;
+  margin: 0 1rem 1rem;
+  border-radius: 3px;
+  user-select: none;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 200;
+  margin-top: 0;
+  text-align: center;
+}
+
+strong {
+  font-weight: 400;
+  color: FireBrick;
+}
+
+h2 {
+  font-size: .9rem;
+  line-height: 2.5;
+  color: gray;
+  font-weight: 400;
+}
+
+hr {
+  width: 75%;
+}
+
+a {
+  color:FireBrick;
+  text-decoration: none;
+}
+
+a:visited {
+  color:#663366;
+}
+
+a:hover {
+  color:FireBrick;
+  text-decoration: underline;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+blockquote {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 1rem;
+  border-left: solid 3px #aaa;
+}
+
+blockquote p {
+  margin-bottom: 6px;
+}
+
+#front-quote , #front-quote, p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.profile-card-portrait {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.profile-card-quote {
+  margin-top: 1.5rem;
+}
+
+.profile-card-portrait img {
+  margin: 0 auto;
+  display: block;
+}
+
+.profile-card-desc {
+    margin-top: 1.25rem;
+}
+
+@media (min-width: 40rem) {
+  .profile-card-portrait {
+    margin-bottom: 0;
+  }
+  .profile-card-links {
+    margin-top: 0;
+  }
+}

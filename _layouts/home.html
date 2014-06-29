@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html style="background: whitesmoke">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, max-scale=1">
+
+    <!-- 3rd party CSS -->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <!-- Fix IE -->
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Web Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italics,300,300italics,200' rel='stylesheet' type='text/css'>
+
+    <!-- Scripts -->
+    <script src="js/magic.js"></script>
+  </head>
+  <body>
+  <canvas id="magic"></canvas>
+    <div class="container">
+      {{ content }}
+    </div>
+  </body>
+</html>
