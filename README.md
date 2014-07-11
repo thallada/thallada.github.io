@@ -30,12 +30,12 @@ widths are:
 
 CSS class name  | width percentage
 --------------- | ----------------
-full            | 100%
-two-thirds      | 66.7%
-half            | 50%
-third           | 33.3%
-fourth          | 25%
-three-fourths   | 75%
+`full`          | 100%
+`two-thirds`    | 66.7%
+`half`          | 50%
+`third`         | 33.3%
+`fourth`        | 25%
+`three-fourths` | 75%
 
 These are purely for convienence. A more precise width can be specified in the
 CSS if desired with the `width` attribute.
