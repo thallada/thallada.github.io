@@ -10,13 +10,13 @@ system out of it.
 
 As an introduction to this system:
 
-1. Wrap everything in a div element with the `container` class.
+Wrap everything in a div element with the `container` class.
 
 ```html
 <div class="container"></div>
 ```
 
-2. To create rows add div elements with the `row` and `clearfix` classes.
+To create rows add div elements with the `row` and `clearfix` classes.
 
 ```html
 <div class="container">
@@ -24,7 +24,7 @@ As an introduction to this system:
 </div>
 ```
 
-2. To create columns add div elements with the `column` class. Then add a class
+To create columns add div elements with the `column` class. Then add a class
 to describe the width of the column with respect to the container. The possible
 widths are:
 
@@ -48,7 +48,7 @@ CSS if desired with the `width` attribute.
 </div>
 ```
 
-3. Columns stack up right to left. To force a column out of order all the way to
+Columns stack up right to left. To force a column out of order all the way to
 the right use the `flow-opposite` class on the column.
 
 ```html
@@ -60,7 +60,7 @@ the right use the `flow-opposite` class on the column.
 </div>
 ```
 
-4. To hide an element on mobile phones add the class `hide-mobile`. To hide on
+To hide an element on mobile phones add the class `hide-mobile`. To hide on
 desktop, use `hide-desktop` instead.
 
 ```html
@@ -72,6 +72,6 @@ desktop, use `hide-desktop` instead.
 </div>
 ```
 
-5. Another note: I use [box-sizing (as suggested by Paul
+Another note: I use [box-sizing (as suggested by Paul
 Irish)](http://www.paulirish.com/2012/box-sizing-border-box-ftw/), which I think
 makes dealing with sizing elements a lot more sane.
