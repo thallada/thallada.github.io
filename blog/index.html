@@ -1,13 +1,27 @@
 ---
 layout: default
-title: Tyler Hallada
+title: Tyler Hallada - Blog
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+{% for post in site.posts %}
+  <div class="card">
+    <div class="row clearfix post-header">
+      <div class="column three-fourths">
+        <a href="{{ post.url }}"><h2 class="post-title">{{ post.title }}</h2></a>
+      </div>
+      <div class="column fourth">
+        <span class="timestamp">{{ post.date | date_to_string }}</span> 
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="column full post">
+        {{ post.excerpt }}
+      </div>
+    </div>
+    <div class="row clearfix more-row">
+      <div class="column full">
+        <a href="{{ post.url }}" class="read-more">Read More &raquo;</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}

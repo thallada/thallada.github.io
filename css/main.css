@@ -12,31 +12,61 @@
   box-sizing: border-box;
 }
 
-/* Global Reset */
-/** {*/
-  /*margin: 0;*/
-  /*padding: 0;*/
-/*}*/
+html {
+  width: 100%;
+  height: 100%;
+}
 
-/*makes the page overflow, so commenting out for now*/
-/*html, body { height: 100%; }*/
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #444;
+}
 
-/*body {*/
-  /*background-color: #FFF;*/
-  /*font: 13.34px Helvetica, Arial, sans-serif;*/
-  /*font-size: small;*/
-  /*text-align: center;*/
-/*}*/
+strong {
+  font-weight: 400;
+  color: FireBrick;
+}
 
-/*h1, h2, h3, h4, h5, h6 {*/
-  /*font-size: 100%; }*/
+h2 {
+  font-weight: 300;
+}
 
-/*h1 { margin-bottom: 1em; }*/
-/*p { margin: 1em 0; }*/
+hr {
+  width: 75%;
+}
 
-/*a         { color: #00a; }*/
-/*a:hover   { color: #000; }*/
-/*a:visited { color: #a0a; }*/
+a {
+  color:FireBrick;
+  text-decoration: none;
+}
+
+a:visited {
+  color:#855C85;
+}
+
+a:hover {
+  color:FireBrick;
+  text-decoration: underline;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+blockquote {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 1rem;
+  border-left: solid 3px #aaa;
+}
+
+blockquote p {
+  margin-bottom: 6px;
+}
 
 /*****************************************************************************/
 /*
@@ -106,94 +136,59 @@ img { width: auto; max-width: 100%; height: auto; }
 
 /*****************************************************************************/
 /*
-/* Home
-/*
-/*****************************************************************************/
-.posts {
-  list-style-type: none;
-  margin-bottom: 2em;
-}
-
-.posts li {
-  line-height: 1.75em;
-}
-
-.posts span {
-  color: #aaa;
-  font-family: Monaco, "Courier New", monospace;
-  font-size: 80%;
-}
-
-/*****************************************************************************/
-/*
-/* Site
+/* Blog
 /*
 /*****************************************************************************/
 
-.site {
-  font-size: 115%;
-  text-align: justify;
-  width: 42em;
-  margin: 3em auto 2em;
-  line-height: 1.5em;
-}
-
-.header a {
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.title {
+h1.title {
   display: inline-block;
-  margin-bottom: 2em;
+  padding-right: 10px;
+  font-size: 2rem;
+  font-weight: 200;
 }
 
-.title a {
-  color: #a00;
+div.header a {
+  color: FireBrick;
 }
 
-.title a:hover {
-  color: #000;
+span.timestamp {
+  font-size: 0.85rem;
 }
 
-.header a.extra {
-  color: #aaa;
-  margin-left: 1em;
+@media (min-width: 40rem) {
+  span.timestamp {
+    float: right;
+    font-size: 0.85rem;
+  }
 }
 
-.header a.extra:hover {
-  color: #000;
+.post-header {
+  padding-bottom: 10px;
 }
 
-.meta {
-  color: #aaa;
-}
-
-.footer {
-  font-size: 80%;
-  color: #666;
-  border-top: 4px solid #eee;
-  margin-top: 2em;
-  overflow: hidden;
-}
-
-.footer .contact {
-  float: left;
-  margin-right: 3em;
-}
-
-.footer .contact a {
-  color: #8085C1;
-}
-
-.footer .rss {
-  margin-top: 1.1em;
-  margin-right: -.2em;
+a.read-more {
   float: right;
+  font-size: 0.85rem;
 }
 
-.footer .rss img {
-  border: 0;
+h2.post-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 40rem) {
+  p.contact-links {
+    float: right;
+  }
+}
+
+.contact {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+div.more-row {
+  padding-top: 5px;
 }
 
 /*****************************************************************************/
@@ -241,8 +236,6 @@ img { width: auto; max-width: 100%; height: auto; }
 /*****************************************************************************/
 
 #home {
-  font-family: 'Open Sans', Arial, sans-serif;
-  color: #444;
   display: block;
   position: relative;
   padding-top: 1.5rem;
@@ -261,63 +254,11 @@ img { width: auto; max-width: 100%; height: auto; }
   user-select: none;
 }
 
-html {
-  width: 100%;
-  height: 100%;
-}
-
-h1 {
+h1.big-name {
   font-size: 2rem;
   font-weight: 200;
   margin-top: 0;
   text-align: center;
-}
-
-strong {
-  font-weight: 400;
-  color: FireBrick;
-}
-
-h2 {
-  font-size: .9rem;
-  line-height: 2.5;
-  color: gray;
-  font-weight: 400;
-}
-
-hr {
-  width: 75%;
-}
-
-a {
-  color:FireBrick;
-  text-decoration: none;
-}
-
-a:visited {
-  color:#663366;
-}
-
-a:hover {
-  color:FireBrick;
-  text-decoration: underline;
-}
-
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-blockquote {
-  margin-left: 20px;
-  margin-right: 20px;
-  padding-left: 1rem;
-  border-left: solid 3px #aaa;
-}
-
-blockquote p {
-  margin-bottom: 6px;
 }
 
 #front-quote , #front-quote, p {
@@ -377,9 +318,11 @@ blockquote p {
 a.no-decoration {
   color: #444;
 }
+
 a.no-decoration:visited {
   color: #444;
 }
+
 a.no-decoration:hover {
   color: #444;
   text-decoration: none;

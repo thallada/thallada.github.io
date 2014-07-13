@@ -1,9 +1,18 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
-
-<div class="post">
-{{ content }}
+<div class="card">
+  <div class="row clearfix post-header">
+    <div class="column three-fourths">
+      <a href="{{ post.url }}"><h2 class="post-title">{{ page.title }}</h2></a>
+    </div>
+    <div class="column fourth">
+      <span class="timestamp">{{ page.date | date_to_string }}</span> 
+    </div>
+  </div>
+  <div class="row clearfix">
+    <div class="column full post">
+      {{ content }}
+    </div>
+  </div>
 </div>
