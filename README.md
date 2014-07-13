@@ -49,7 +49,8 @@ CSS if desired with the `width` attribute.
 ```
 
 Columns stack up right to left. To force a column out of order all the way to
-the right use the `flow-opposite` class on the column.
+the right use the `flow-opposite` class on the column (but remain first on
+smaller screens).
 
 ```html
 <div class="container">
@@ -75,3 +76,13 @@ desktop, use `hide-desktop` instead.
 Another note: I use [box-sizing (as suggested by Paul
 Irish)](http://www.paulirish.com/2012/box-sizing-border-box-ftw/), which I think
 makes dealing with sizing elements a lot more sane.
+
+##Attributions##
+[Book](http://thenounproject.com/term/book/23611/) designed by [Nherwin
+Ardoña](http://thenounproject.com/nherwinma) from the Noun Project.
+
+[Profile](http://thenounproject.com/term/profile/20733/) designed by [Ryan
+Beck](http://thenounproject.com/RyanBeck) from the Noun Project.
+
+[Photos](http://thenounproject.com/term/photos/29898/) designed by [Ryan
+Beck](http://thenounproject.com/RyanBeck) from the Noun Project.

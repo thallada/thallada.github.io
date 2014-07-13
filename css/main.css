@@ -351,3 +351,36 @@ blockquote p {
     margin-top: 0;
   }
 }
+
+.link-card {
+  text-align: center;
+  text-decoration: none;
+}
+
+.link-card img {
+  max-width: 64px;
+  max-height: 64px;
+}
+
+.mobile-half {
+  padding: 0;
+  float: left;
+  width: 50%;
+}
+
+@media (min-width: 40rem) {
+  .mobile-half {
+    padding: 0;
+  }
+}
+
+a.no-decoration {
+  color: #444;
+}
+a.no-decoration:visited {
+  color: #444;
+}
+a.no-decoration:hover {
+  color: #444;
+  text-decoration: none;
+}
