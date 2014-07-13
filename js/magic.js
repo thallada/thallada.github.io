@@ -79,8 +79,7 @@ window.onload = function () {
         var branches = [];
         branches.push({
             points:new Array({x:x, y:y}, {x:x, y:y}, {x:x, y:y}, {x:x, y:y}), 
-            angle:0,
-            //distanceToLattice:1000
+            angle:(Math.random() * 360),
         });
         
         // Start drawing splines at t=0
@@ -115,15 +114,15 @@ window.onload = function () {
                     ay*Math.pow(t, 3) + by*Math.pow(t, 2) + cy*t + dy
                 );
                 context.lineTo(
-                    ax*Math.pow(t+0.1, 3) + bx*Math.pow(t+0.1, 2) + cx*(t+0.1) + dx, 
-                    ay*Math.pow(t+0.1, 3) + by*Math.pow(t+0.1, 2) + cy*(t+0.1) + dy
+                    ax*Math.pow(t+0.2, 3) + bx*Math.pow(t+0.2, 2) + cx*(t+0.2) + dx, 
+                    ay*Math.pow(t+0.2, 3) + by*Math.pow(t+0.2, 2) + cy*(t+0.2) + dy
                 );
                 context.stroke();
                 context.closePath();            
             }
             
             // Advance t
-            t += 0.1;
+            t += 0.2;
             
             // When finished drawing splines, create a new set of branches
             if (t >= 1) {       
@@ -139,13 +138,6 @@ window.onload = function () {
                         
                         // Generate random deviation from previous angle
                         var angle = branches[j].angle - (Math.random() * 180 - 90);                 
-                        
-                        // Determine closest lattice point
-                        //var distanceToLattice = 100000
-                        //for (var l in lattice) {
-                            //var result = distancePointToLine(branches[j].points[3], lattice[l]);
-                            //if (result < distanceToLattice) distanceToLattice = result;
-                        //}
                         
                         // Generate random length
                         var length = Math.random() * 15 + 4;
@@ -163,16 +155,10 @@ window.onload = function () {
                                 {x:x2, y:y2}
                             ),
                             angle:angle,
-                            //distanceToLattice:distanceToLattice
                         });
 
                     }
                 }
-                
-                // Sort branches by distance to lattice
-                //new_branches.sort(function(a, b) {
-                    //return a.distanceToLattice - b.distanceToLattice;
-                //});
 
                 // If over 10 branches, prune the branches
                 if (prune) {
@@ -187,7 +173,7 @@ window.onload = function () {
                 
                 // Replace old branch array with new
                 branches = new_branches;
-                
+
                 // Restart drawing splines at t=0
                 t = 0;
             }
@@ -196,14 +182,56 @@ window.onload = function () {
             interations--;
             if (interations < 0) clearInterval(interval);
                 
-        }, 16.67);
+        }, 32);
         
         // Return interval
         return interval;
     }
 
+    function canvasClickHandler(event) {
+        var x = event.pageX;
+        var y = event.pageY;
+        var duration = Math.floor(Math.random() * (600 - 50 + 1)) + 50;
+        var canvas = document.getElementById("magic");
+        var context = canvas.getContext("2d");
+
+        var interval = drawTendrils(context, x, y, duration, false, true, 15);
+    }
 
     function draw() {
+        var interval_time = 2000;
+        var metaInterval;
+
+        function cast() {
+            console.log(interval_time);
+            clearInterval(metaInterval);
+
+            // Go slower once started
+            if (interval_time === 2000) {
+                interval_time = 4000;
+            } else if (interval_time > 20000) {
+                return; // stop drawing
+            } else {
+                interval_time = interval_time * 1.1;
+            }
+
+            // resize canvas if document size changed
+            dimensions = getDocumentDimensions();
+            if ((dimensions.height !== canvas.height) ||
+                (dimensions.width !== canvas.width)) {
+                canvas.height = dimensions.height;
+                canvas.width = dimensions.width;
+            }
+
+            // Find random position
+            var x = Math.floor(Math.random() * (canvas.width + 1));
+            var y = Math.floor(Math.random() * (canvas.height + 1));
+            var duration = Math.floor(Math.random() * (600 - 50 + 1)) + 50;
+            var interval = drawTendrils(context, x, y, duration, false, true, 15);
+
+            metaInterval = setInterval(cast, interval_time);
+        }
+
         // Initialize canvas
         console.log("draw");
         var canvas = document.getElementById("magic");
@@ -213,28 +241,14 @@ window.onload = function () {
         canvas.height = dimensions.height;
         canvas.width = dimensions.width;
 
-        // Check for canvas support and get context
+        // Check for canvas support, bind click event, and get context
         if (canvas.getContext){
+            canvas.addEventListener("click", canvasClickHandler);
+
             var context = canvas.getContext("2d");
 
             // Cast magic spells
-            var metaInterval = setInterval(function () {
-                // resize canvas if document size changed
-                dimensions = getDocumentDimensions();
-                if ((dimensions.height !== canvas.height) ||
-                    (dimensions.width !== canvas.width)) {
-                    console.log(dimensions.height);
-                    console.log(dimensions.width);
-                    canvas.height = dimensions.height;
-                    canvas.width = dimensions.width;
-                }
-
-                // Find random position
-                var x = Math.floor(Math.random() * (canvas.width + 1));
-                var y = Math.floor(Math.random() * (canvas.height + 1));
-                var duration = Math.floor(Math.random() * (600 - 50 + 1)) + 50;
-                var interval = drawTendrils(context, x, y, duration, false, true, 30);
-            }, 3000);
+            metaInterval = setInterval(cast, interval_time);
         }
     }
 
