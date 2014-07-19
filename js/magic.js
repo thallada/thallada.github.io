@@ -66,9 +66,68 @@ window.onload = function () {
                 "b": Math.floor(Math.random() * (255 + 1))};
     }
 
+    function drawSplineSegment(branch, t, context) {
+        var ax = (-branch.points[0].x + 3*branch.points[1].x - 3*branch.points[2].x + branch.points[3].x) / 6;
+        var ay = (-branch.points[0].y + 3*branch.points[1].y - 3*branch.points[2].y + branch.points[3].y) / 6;
+        var bx = (branch.points[0].x - 2*branch.points[1].x + branch.points[2].x) / 2;
+        var by = (branch.points[0].y - 2*branch.points[1].y + branch.points[2].y) / 2;
+        var cx = (-branch.points[0].x + branch.points[2].x) / 2;
+        var cy = (-branch.points[0].y + branch.points[2].y) / 2;
+        var dx = (branch.points[0].x + 4*branch.points[1].x + branch.points[2].x) / 6;
+        var dy = (branch.points[0].y + 4*branch.points[1].y + branch.points[2].y) / 6;
+        context.moveTo(
+            ax*Math.pow(t, 3) + bx*Math.pow(t, 2) + cx*t + dx, 
+            ay*Math.pow(t, 3) + by*Math.pow(t, 2) + cy*t + dy
+        );
+        context.lineTo(
+            ax*Math.pow(t+0.2, 3) + bx*Math.pow(t+0.2, 2) + cx*(t+0.2) + dx, 
+            ay*Math.pow(t+0.2, 3) + by*Math.pow(t+0.2, 2) + cy*(t+0.2) + dy
+        );
+    }
+
+    function splitBranch(branch, new_branches) {
+        // Replace with 2 new branches
+        for (var k = 0; k < 2; k++) {
+            
+            // Generate random deviation from previous angle
+            var angle = branch.angle - (Math.random() * 180 - 90);                 
+            
+            // Generate random length
+            var length = Math.random() * 15 + 4;
+            
+            // Calculate new point
+            var x2 = branch.points[3].x + Math.sin(Math.PI * angle / 180) * length;
+            var y2 = branch.points[3].y - Math.cos(Math.PI * angle / 180) * length;
+            
+            // Add to new branch array 
+            new_branches.push({
+                points:new Array(
+                    branch.points[1],
+                    branch.points[2],
+                    branch.points[3],
+                    {x:x2, y:y2}
+                ),
+                angle:angle,
+            });
+
+        }
+    }
+
+    function createNewBranches(branches) {
+        // Create array to store next iteration of branchces
+        var new_branches = [];
+        
+        // Iterate over each branch
+        for (var j in branches) {
+            splitBranch(branches[j], new_branches);
+        }
+
+        return new_branches;
+    }
+
     /* Most of this funtion is provided by Maissan Inc. in their tutorial:
        http://www.maissan.net/articles/simulating-vines */
-    function drawTendrils(context, x, y, interations, sort, prune, prune_to) {
+    function drawTendrils(context, x, y, iterations, sort, prune, prune_to) {
         
         // Set stroke colour
         context.lineWidth = 0.5;
@@ -96,30 +155,13 @@ window.onload = function () {
             gradient = newColor.gradient;
             context.strokeStyle = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
                 
+            context.beginPath();
             // Draw branches
             for (var i in branches) {
-                
-                // Draw spline segment
-                var ax = (-branches[i].points[0].x + 3*branches[i].points[1].x - 3*branches[i].points[2].x + branches[i].points[3].x) / 6;
-                var ay = (-branches[i].points[0].y + 3*branches[i].points[1].y - 3*branches[i].points[2].y + branches[i].points[3].y) / 6;
-                var bx = (branches[i].points[0].x - 2*branches[i].points[1].x + branches[i].points[2].x) / 2;
-                var by = (branches[i].points[0].y - 2*branches[i].points[1].y + branches[i].points[2].y) / 2;
-                var cx = (-branches[i].points[0].x + branches[i].points[2].x) / 2;
-                var cy = (-branches[i].points[0].y + branches[i].points[2].y) / 2;
-                var dx = (branches[i].points[0].x + 4*branches[i].points[1].x + branches[i].points[2].x) / 6;
-                var dy = (branches[i].points[0].y + 4*branches[i].points[1].y + branches[i].points[2].y) / 6;
-                context.beginPath();
-                context.moveTo(
-                    ax*Math.pow(t, 3) + bx*Math.pow(t, 2) + cx*t + dx, 
-                    ay*Math.pow(t, 3) + by*Math.pow(t, 2) + cy*t + dy
-                );
-                context.lineTo(
-                    ax*Math.pow(t+0.2, 3) + bx*Math.pow(t+0.2, 2) + cx*(t+0.2) + dx, 
-                    ay*Math.pow(t+0.2, 3) + by*Math.pow(t+0.2, 2) + cy*(t+0.2) + dy
-                );
-                context.stroke();
-                context.closePath();            
+                drawSplineSegment(branches[i], t, context);
             }
+            context.stroke();
+            context.closePath();            
             
             // Advance t
             t += 0.2;
@@ -127,38 +169,7 @@ window.onload = function () {
             // When finished drawing splines, create a new set of branches
             if (t >= 1) {       
                 
-                // Create array to store next iteration of branchces
-                var new_branches = [];
-                
-                // Iterate over each branch
-                for (var j in branches) {
-                    
-                    // Replace with 2 new branches
-                    for (var k = 0; k < 2; k++) {
-                        
-                        // Generate random deviation from previous angle
-                        var angle = branches[j].angle - (Math.random() * 180 - 90);                 
-                        
-                        // Generate random length
-                        var length = Math.random() * 15 + 4;
-                        
-                        // Calculate new point
-                        var x2 = branches[j].points[3].x + Math.sin(Math.PI * angle / 180) * length;
-                        var y2 = branches[j].points[3].y - Math.cos(Math.PI * angle / 180) * length;
-                        
-                        // Add to new branch array 
-                        new_branches.push({
-                            points:new Array(
-                                branches[j].points[1],
-                                branches[j].points[2],
-                                branches[j].points[3],
-                                {x:x2, y:y2}
-                            ),
-                            angle:angle,
-                        });
-
-                    }
-                }
+                var new_branches = createNewBranches(branches);
 
                 // If over 10 branches, prune the branches
                 if (prune) {
@@ -179,8 +190,8 @@ window.onload = function () {
             }
             
             // Count interations
-            interations--;
-            if (interations < 0) clearInterval(interval);
+            iterations--;
+            if (iterations < 0) clearInterval(interval);
                 
         }, 32);
         
