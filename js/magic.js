@@ -1,5 +1,11 @@
 window.onload = function () {
 
+    // Array to hold all active spells being drawn
+    var spells = [];
+    
+    // Save this query here now that the page is loaded
+    var canvas = document.getElementById("magic");
+
     /* Get the height and width of full document. To avoid browser
      * incompatibility issues, choose the maximum of all height/width values.
      *
@@ -37,7 +43,10 @@ window.onload = function () {
 
        If the red, green, or blue value of the color is at 0 or 255 and the
        gradient for that value is not zero, then the gradient for that value
-       will change signs. */
+       will change signs. 
+       
+       Unused for now. It turns out that changing the canvas stroke color is a
+       costly operation and slows things down a lot. */
     function nextColor(color, gradient) {
         var values = ["r", "g", "b"];
 
@@ -66,7 +75,7 @@ window.onload = function () {
                 "b": Math.floor(Math.random() * (255 + 1))};
     }
 
-    function drawSplineSegment(branch, t, context) {
+    function drawSplineSegment(branch, context) {
         var ax = (-branch.points[0].x + 3*branch.points[1].x - 3*branch.points[2].x + branch.points[3].x) / 6;
         var ay = (-branch.points[0].y + 3*branch.points[1].y - 3*branch.points[2].y + branch.points[3].y) / 6;
         var bx = (branch.points[0].x - 2*branch.points[1].x + branch.points[2].x) / 2;
@@ -76,16 +85,18 @@ window.onload = function () {
         var dx = (branch.points[0].x + 4*branch.points[1].x + branch.points[2].x) / 6;
         var dy = (branch.points[0].y + 4*branch.points[1].y + branch.points[2].y) / 6;
         context.moveTo(
-            ax*Math.pow(t, 3) + bx*Math.pow(t, 2) + cx*t + dx, 
-            ay*Math.pow(t, 3) + by*Math.pow(t, 2) + cy*t + dy
+            ax*Math.pow(branch.t, 3) + bx*Math.pow(branch.t, 2) + cx*branch.t + dx, 
+            ay*Math.pow(branch.t, 3) + by*Math.pow(branch.t, 2) + cy*branch.t + dy
         );
         context.lineTo(
-            ax*Math.pow(t+0.2, 3) + bx*Math.pow(t+0.2, 2) + cx*(t+0.2) + dx, 
-            ay*Math.pow(t+0.2, 3) + by*Math.pow(t+0.2, 2) + cy*(t+0.2) + dy
+            ax*Math.pow(branch.t+0.2, 3) + bx*Math.pow(branch.t+0.2, 2) + cx*(branch.t+0.2) + dx, 
+            ay*Math.pow(branch.t+0.2, 3) + by*Math.pow(branch.t+0.2, 2) + cy*(branch.t+0.2) + dy
         );
+        branch.t += 0.2;
     }
 
-    function splitBranch(branch, new_branches) {
+    function splitBranch(branch) {
+        var newBranches = [];
         // Replace with 2 new branches
         for (var k = 0; k < 2; k++) {
             
@@ -100,7 +111,7 @@ window.onload = function () {
             var y2 = branch.points[3].y - Math.cos(Math.PI * angle / 180) * length;
             
             // Add to new branch array 
-            new_branches.push({
+            newBranches.push({
                 points:new Array(
                     branch.points[1],
                     branch.points[2],
@@ -108,124 +119,54 @@ window.onload = function () {
                     {x:x2, y:y2}
                 ),
                 angle:angle,
+                t:0,
             });
 
         }
+        return newBranches;
     }
 
-    function createNewBranches(branches) {
-        // Create array to store next iteration of branchces
-        var new_branches = [];
-        
-        // Iterate over each branch
-        for (var j in branches) {
-            splitBranch(branches[j], new_branches);
+    function cast(x, y, angle) {
+        // Find random position if not defined
+        if (x === undefined) {
+            x = Math.floor(Math.random() * (canvas.width + 1));
+        }
+        if (y === undefined) {
+            y = Math.floor(Math.random() * (canvas.height + 1));
+        }
+        if (angle === undefined) {
+            angle = Math.random() * 360;
         }
 
-        return new_branches;
+        var color = pickRandomColor();
+        var colorString = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+
+        // Create new spell (branch)
+        spells.push({
+            branches:new Array({
+                points:new Array({x:x, y:y}, {x:x, y:y}, {x:x, y:y}, {x:x, y:y}), 
+                angle:angle,
+                t:0,
+            }),
+            color:colorString,
+            duration:Math.floor(Math.random() * (600 - 50 + 1)) + 50,
+        });
     }
 
     /* Most of this funtion is provided by Maissan Inc. in their tutorial:
        http://www.maissan.net/articles/simulating-vines */
-    function drawTendrils(context, x, y, iterations, sort, prune, prune_to) {
-        
-        // Set stroke colour
+    function drawSpells(context, sort, prune, prune_to) {
+        var AnimationFrame = window.AnimationFrame;
+        AnimationFrame.shim();
+        var animationFrame = new AnimationFrame(30),
+            timeCounter = 0,
+            waitTime = 80,
+            lastCast = 0,
+            color,
+            gradient;
         context.lineWidth = 0.5;
-        var color = pickRandomColor();
-        context.strokeStyle = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
-
-        // Create initial branch
-        var branches = [];
-        branches.push({
-            points:new Array({x:x, y:y}, {x:x, y:y}, {x:x, y:y}, {x:x, y:y}), 
-            angle:(Math.random() * 360),
-        });
         
-        // Start drawing splines at t=0
-        var t = 0;
-        
-        // Drawing interval
-        var interval = setInterval(function() {
-
-            var gradient = pickGradient();
-
-            // Set stroke color
-            var newColor = nextColor(color, gradient);
-            color = newColor.color;
-            gradient = newColor.gradient;
-            context.strokeStyle = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
-                
-            context.beginPath();
-            // Draw branches
-            for (var i in branches) {
-                drawSplineSegment(branches[i], t, context);
-            }
-            context.stroke();
-            context.closePath();            
-            
-            // Advance t
-            t += 0.2;
-            
-            // When finished drawing splines, create a new set of branches
-            if (t >= 1) {       
-                
-                var new_branches = createNewBranches(branches);
-
-                // If over 10 branches, prune the branches
-                if (prune) {
-                    if (sort) {
-                        while (new_branches.length > 20) new_branches.pop();
-                    } else {
-                        while (new_branches.length > prune_to) {
-                            new_branches.splice(Math.floor(Math.random() * new_branches.length), 1);
-                        }   
-                    }
-                }
-                
-                // Replace old branch array with new
-                branches = new_branches;
-
-                // Restart drawing splines at t=0
-                t = 0;
-            }
-            
-            // Count interations
-            iterations--;
-            if (iterations < 0) clearInterval(interval);
-                
-        }, 32);
-        
-        // Return interval
-        return interval;
-    }
-
-    function canvasClickHandler(event) {
-        var x = event.pageX;
-        var y = event.pageY;
-        var duration = Math.floor(Math.random() * (600 - 50 + 1)) + 50;
-        var canvas = document.getElementById("magic");
-        var context = canvas.getContext("2d");
-
-        var interval = drawTendrils(context, x, y, duration, false, true, 15);
-    }
-
-    function draw() {
-        var interval_time = 2000;
-        var metaInterval;
-
-        function cast() {
-            console.log(interval_time);
-            clearInterval(metaInterval);
-
-            // Go slower once started
-            if (interval_time === 2000) {
-                interval_time = 4000;
-            } else if (interval_time > 20000) {
-                return; // stop drawing
-            } else {
-                interval_time = interval_time * 1.1;
-            }
-
+        function animate(time) {
             // resize canvas if document size changed
             dimensions = getDocumentDimensions();
             if ((dimensions.height !== canvas.height) ||
@@ -234,18 +175,89 @@ window.onload = function () {
                 canvas.width = dimensions.width;
             }
 
-            // Find random position
-            var x = Math.floor(Math.random() * (canvas.width + 1));
-            var y = Math.floor(Math.random() * (canvas.height + 1));
-            var duration = Math.floor(Math.random() * (600 - 50 + 1)) + 50;
-            var interval = drawTendrils(context, x, y, duration, false, true, 15);
+            // if enough time has passed, cast another spell to draw
+            if ((timeCounter - lastCast) >= waitTime) {
+                if (waitTime > 500) {
+                    return; // stop drawing
+                } else if (waitTime === 80){
+                    waitTime = 125;
+                } else {
+                    waitTime = waitTime * 1.1;
+                }
 
-            metaInterval = setInterval(cast, interval_time);
+                console.log("cast: " + waitTime);
+                lastCast = timeCounter;
+                if (waitTime === 125) {
+                    cast(5, 5, 270); // start position
+                } else {
+                    cast(undefined, undefined, undefined); // random spell position
+                }
+            }
+
+            // Draw branches
+            for (var i in spells) {
+                context.beginPath();
+                context.strokeStyle = spells[i].color;
+
+                if (spells[i].duration > 0) {
+                    for (var j in spells[i].branches) {
+                        drawSplineSegment(spells[i].branches[j], context);
+
+                        // When finished drawing splines, create a new set of branches
+                        if (spells[i].branches[j].t >= 1) {       
+                            
+                            var newBranches = splitBranch(spells[i].branches[j]);
+                            
+                            // Replace old branch with two new branches
+                            spells[i].branches.splice(j, 1);
+                            spells[i].branches = spells[i].branches.concat(newBranches);
+                        }
+                    }
+
+                    // If over 10 branches, prune the branches
+                    if (prune) {
+                        if (sort) {
+                            while (spells[i].branches.length > prune_to) {
+                                spells[i].branches.pop();
+                            }
+                        } else {
+                            while (spells[i].branches.length > prune_to) {
+                                spells[i].branches.splice(
+                                        Math.floor(Math.random() * spells[i].branches.length),
+                                        1);
+                            }   
+                        }
+                    }
+
+                    context.stroke();
+                    context.closePath();
+                    spells[i].duration--;
+
+                } else {
+                    spells.splice(i, 1); // spell is done now
+                }
+            }
+            
+            timeCounter++;
+            frameId = animationFrame.request(animate);
         }
 
+        // Drawing interval
+        var frameId = animationFrame.request(animate);
+        return frameId;
+    }
+
+    function canvasClickHandler(event) {
+        var x = event.pageX;
+        var y = event.pageY;
+        
+        cast(x, y, undefined);
+    }
+
+    function draw() {
+        var interval_time = 2000;
+
         // Initialize canvas
-        console.log("draw");
-        var canvas = document.getElementById("magic");
         var dimensions = getDocumentDimensions();
         console.log(dimensions.height);
         console.log(dimensions.width);
@@ -259,7 +271,7 @@ window.onload = function () {
             var context = canvas.getContext("2d");
 
             // Cast magic spells
-            metaInterval = setInterval(cast, interval_time);
+            var frameId = drawSpells(context, false, true, 30);
         }
     }
 
