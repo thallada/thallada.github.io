@@ -160,7 +160,7 @@ window.onload = function () {
         AnimationFrame.shim();
         var animationFrame = new AnimationFrame(30),
             timeCounter = 0,
-            waitTime = 80,
+            waitTime = 50,
             lastCast = 0,
             color,
             gradient;
@@ -177,14 +177,14 @@ window.onload = function () {
 
             // if enough time has passed, cast another spell to draw
             if (waitTime <= 500 && (timeCounter - lastCast) >= waitTime) {
-                if (waitTime === 80) {
-                    waitTime = 125;
+                if (waitTime === 50) {
+                    waitTime = 100;
                 } else {
                     waitTime = waitTime * 1.1;
                 }
 
                 lastCast = timeCounter;
-                if (waitTime === 125) {
+                if (waitTime === 100) {
                     cast(5, 5, 270); // start position
                 } else {
                     cast(undefined, undefined, undefined); // random spell position
