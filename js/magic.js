@@ -176,16 +176,13 @@ window.onload = function () {
             }
 
             // if enough time has passed, cast another spell to draw
-            if ((timeCounter - lastCast) >= waitTime) {
-                if (waitTime > 500) {
-                    return; // stop drawing
-                } else if (waitTime === 80){
+            if (waitTime <= 500 && (timeCounter - lastCast) >= waitTime) {
+                if (waitTime === 80) {
                     waitTime = 125;
                 } else {
                     waitTime = waitTime * 1.1;
                 }
 
-                console.log("cast: " + waitTime);
                 lastCast = timeCounter;
                 if (waitTime === 125) {
                     cast(5, 5, 270); // start position
