@@ -269,7 +269,7 @@ div.pagination {
 
 @media (min-width: 40rem) {
   .post ul, .post ol {
-    margin-left: 1.35em;
+    margin-left: 0.5em;
     padding-left: 40px;
   }
 }
