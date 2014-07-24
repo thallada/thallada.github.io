@@ -88,11 +88,13 @@ window.onload = function () {
             ax*Math.pow(branch.t, 3) + bx*Math.pow(branch.t, 2) + cx*branch.t + dx, 
             ay*Math.pow(branch.t, 3) + by*Math.pow(branch.t, 2) + cy*branch.t + dy
         );
+        //var step = (branch.t * -0.15) + 0.2;
+        var step = 0.2;
         context.lineTo(
-            ax*Math.pow(branch.t+0.2, 3) + bx*Math.pow(branch.t+0.2, 2) + cx*(branch.t+0.2) + dx, 
-            ay*Math.pow(branch.t+0.2, 3) + by*Math.pow(branch.t+0.2, 2) + cy*(branch.t+0.2) + dy
+            ax*Math.pow(branch.t+step, 3) + bx*Math.pow(branch.t+step, 2) + cx*(branch.t+step) + dx, 
+            ay*Math.pow(branch.t+step, 3) + by*Math.pow(branch.t+step, 2) + cy*(branch.t+step) + dy
         );
-        branch.t += 0.2;
+        branch.t += step;
     }
 
     function splitBranch(branch) {
@@ -182,7 +184,6 @@ window.onload = function () {
                 } else if (waitTime < 300) {
                     waitTime = waitTime * 1.1;
                 }
-                console.log(waitTime);
 
                 lastCast = timeCounter;
                 if (waitTime === 200) {
