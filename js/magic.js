@@ -176,15 +176,16 @@ window.onload = function () {
             }
 
             // if enough time has passed, cast another spell to draw
-            if (waitTime <= 500 && (timeCounter - lastCast) >= waitTime) {
+            if (timeCounter <= 15000 && (timeCounter - lastCast) >= waitTime) {
                 if (waitTime === 50) {
-                    waitTime = 100;
-                } else {
+                    waitTime = 200;
+                } else if (waitTime < 300) {
                     waitTime = waitTime * 1.1;
                 }
+                console.log(waitTime);
 
                 lastCast = timeCounter;
-                if (waitTime === 100) {
+                if (waitTime === 200) {
                     cast(5, 5, 270); // start position
                 } else {
                     cast(undefined, undefined, undefined); // random spell position
@@ -256,8 +257,6 @@ window.onload = function () {
 
         // Initialize canvas
         var dimensions = getDocumentDimensions();
-        console.log(dimensions.height);
-        console.log(dimensions.width);
         canvas.height = dimensions.height;
         canvas.width = dimensions.width;
 
