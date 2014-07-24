@@ -42,6 +42,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin: 0 0 10px;
+}
+
 a:visited {
   color:#855C85;
 }
@@ -145,6 +149,18 @@ h1.title {
   padding-right: 10px;
   font-size: 2rem;
   font-weight: 200;
+  margin: 0;
+}
+
+div.header {
+  margin: 20px 0 20px;
+  text-align: center;
+}
+
+@media (min-width: 40rem) {
+  div.header {
+    text-align: start;
+  }
 }
 
 div.header a {
@@ -153,12 +169,12 @@ div.header a {
 
 span.timestamp {
   font-size: 0.85rem;
+  margin-top: 7px;
 }
 
 @media (min-width: 40rem) {
   span.timestamp {
     float: right;
-    font-size: 0.85rem;
   }
 }
 
@@ -173,7 +189,7 @@ a.read-more {
 
 h2.post-title {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 @media (min-width: 40rem) {
@@ -249,7 +265,7 @@ div.more-row {
   padding: 1rem;
   box-shadow: 0 1px 2px #aaa;
   background: white;
-  margin: 0 1rem 1rem;
+  margin: 0 0.5rem 1rem;
   border-radius: 3px;
   user-select: none;
 }
@@ -261,7 +277,7 @@ h1.big-name {
   text-align: center;
 }
 
-#front-quote , #front-quote, p {
+#front-quote , #front-quote, .profile-card-desc p {
     margin-top: 0;
     margin-bottom: 0;
 }
