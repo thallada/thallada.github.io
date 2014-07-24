@@ -253,18 +253,39 @@ div.pagination {
   border: 1px solid #ddd;
   background-color: #eef;
   padding: 0 .4em;
+  white-space: pre;
+}
+
+@media (min-width: 40rem) {
+  .post pre {
+    white-space: pre-wrap;
+  }
 }
 
 .post ul, .post ol {
-  margin-left: 1.35em;
+  margin-left: 0;
+  padding-left: 20px;
+}
+
+@media (min-width: 40rem) {
+  .post ul, .post ol {
+    margin-left: 1.35em;
+    padding-left: 40px;
+  }
 }
 
 .post code {
   border: 1px solid #ddd;
   background-color: #eef;
   padding: 0 .2em;
-  font-size: 10pt;
+  font-size: 8pt;
   font-family: 'dejavu_sans_monobook', Courier, monospace;
+}
+
+@media (min-width: 40rem) {
+  .post code {
+    font-size: 10pt;
+  }
 }
 
 .post pre code {
