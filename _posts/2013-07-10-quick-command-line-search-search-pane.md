@@ -52,72 +52,80 @@ This is how I got it setup (on any Ubuntu machine with sudo privileges):
 
 Save the following python file in `/usr/bin/` as `search-pane` (no extension):
 
-    #!/usr/bin/python
-    from subprocess import call, check_output
-    from threading import Thread
-    import os
-    import sys
-    import readline
+```python
+#!/usr/bin/python
+from subprocess import call, check_output
+from threading import Thread
+import os
+import sys
+import readline
 
-    home = os.path.expanduser("~")
-    histfile = os.path.join(home, ".search-pane/history")
+home = os.path.expanduser("~")
+histfile = os.path.join(home, ".search-pane/history")
 
-    # load history
-    readline.read_history_file(histfile)
+# load history
+readline.read_history_file(histfile)
 
-    os.system('cls' if os.name=='nt' else 'clear') # clear the terminal
+os.system('cls' if os.name=='nt' else 'clear') # clear the terminal
 
-    url = ''
-    query = ''
-    if len(sys.argv) > 1:
-        url = "http://google.com/search?q=" + '+'.join(sys.argv[1:]) # google url
-        query = ' '.join(sys.argv[1:])
-        readline.add_history(query) # add query to history buffer
-    else:
-        try:
-            query = raw_input('Search: ') # get user's search
-            url = "http://google.com/search?q=" + '+'.join(query.split()) # google
-        except KeyboardInterrupt:
-            sys.exit(0)
-
-    readline.write_history_file(histfile) # write search to history file
-
-    def write_other_hosts():
-        # write to history files on other registered hosts
-        with open(os.devnull, 'w') as FNULL:
-            with open(os.path.join(home, ".search-pane/other-hosts"), "r") as f:
-                for line in f:
-                    line = line.strip().split()
-                    host = line[0]
-                    path = line[1]
-                    # make sure we don't write to local file again
-                    client_names = check_output(['hostname', '-A']).split()
-                    if (host.split('@')[-1] not in client_names):
-                        call(['ssh', host, 'echo', '"' + query + '"', '>>', path],
-                            stderr=FNULL)
-
-    # Spin off another thread for sshing so user doesn't have to wait for
-    # connection to complete before viewing w3m.
+url = ''
+query = ''
+if len(sys.argv) > 1:
+    url = "http://google.com/search?q=" + '+'.join(sys.argv[1:]) # google url
+    query = ' '.join(sys.argv[1:])
+    readline.add_history(query) # add query to history buffer
+else:
     try:
-        Thread(target=write_other_hosts).start()
-    except Exception, errtxt:
-        print errtxt
+        query = raw_input('Search: ') # get user's search
+        url = "http://google.com/search?q=" + '+'.join(query.split()) # google
+    except KeyboardInterrupt:
+        sys.exit(0)
 
-    call(['w3m', url]) # pass url off to w3m
+readline.write_history_file(histfile) # write search to history file
+
+def write_other_hosts():
+    # write to history files on other registered hosts
+    with open(os.devnull, 'w') as FNULL:
+        with open(os.path.join(home, ".search-pane/other-hosts"), "r") as f:
+            for line in f:
+                line = line.strip().split()
+                host = line[0]
+                path = line[1]
+                # make sure we don't write to local file again
+                client_names = check_output(['hostname', '-A']).split()
+                if (host.split('@')[-1] not in client_names):
+                    call(['ssh', host, 'echo', '"' + query + '"', '>>', path],
+                        stderr=FNULL)
+
+# Spin off another thread for sshing so user doesn't have to wait for
+# connection to complete before viewing w3m.
+try:
+    Thread(target=write_other_hosts).start()
+except Exception, errtxt:
+    print errtxt
+
+call(['w3m', url]) # pass url off to w3m
+```
 
 Make the directory and file for search history:
 
-    mkdir ~/.search-pane
-    touch ~/.search-pane/history
+```bash
+mkdir ~/.search-pane
+touch ~/.search-pane/history
+```
 
 Allow anyone to execute the python script (make it into a program):
 
-    chmod a+x /usr/bin/search-pane
+```bash
+chmod a+x /usr/bin/search-pane
+```
 
 To get quick access to the program from the command-line edit `~/.bashrc` to
 add:
 
-    alias s='search-pane'
+```bash
+alias s='search-pane'
+```
 
 To add byobu key bindings edit `~/.byobu/keybindings.tmux` (or `/usr/share/byobu/keybindings/f-keys.tmux`):
 
