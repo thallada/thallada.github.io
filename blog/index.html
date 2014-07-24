@@ -3,7 +3,7 @@ layout: default
 title: Tyler Hallada - Blog
 ---
 
-{% for post in site.posts %}
+{% for post in paginator.posts %}
   <div class="card">
     <div class="row clearfix post-header">
       <div class="column three-fourths">
@@ -25,3 +25,19 @@ title: Tyler Hallada - Blog
     </div>
   </div>
 {% endfor %}
+
+<div class="row clearfix pagination">
+  <div class="column full">
+    {% if paginator.previous_page %}
+      {% if paginator.page == 2 %}
+        <a href="/blog" class="previous">&laquo; Previous</a>
+      {% else %}
+        <a href="/blog/page{{ paginator.previous_page }}" class="previous">&laquo; Previous</a>
+      {% endif %}
+    {% endif %}
+    <span class="page_number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a href="/blog/page{{ paginator.next_page }}" class="next">Next &raquo;</a>
+    {% endif %}
+  </div>
+</div>

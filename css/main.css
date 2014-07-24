@@ -207,6 +207,11 @@ div.more-row {
   padding-top: 5px;
 }
 
+div.pagination {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 /*****************************************************************************/
 /*
 /* Posts
