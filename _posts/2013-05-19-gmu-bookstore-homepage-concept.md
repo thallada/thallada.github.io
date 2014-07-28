@@ -15,7 +15,7 @@ quite a bit of effort into it.
 See it here: [swe205.hallada.net](http://swe205.hallada.net)
 <div style="text-align: center">
     <a href="http://swe205.hallada.net" alt="See it in action">
-        <img src="/static/img/gmu_bookstore_preview.jpg">
+        <img src="/img/blog/gmu_bookstore_preview.jpg">
     </a>
 </div>
 <br>

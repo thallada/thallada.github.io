@@ -34,7 +34,7 @@ George Mason's campus. All of the data is scraped from the eSuds site using
 every time you refresh the page.
 
 <div style="text-align: center"><a href="/laundry" alt="See it in action"><img
-src="/static/img/laundry_preview.png" /></a></div>
+src="/img/blog/laundry_preview.png" /></a></div>
 
 The site will save which laundry room you select so when you come back you will
 immediately see the chart for your laundry room.
@@ -55,7 +55,7 @@ recorded the laundry usage with a [cronjob](http://en.wikipedia.org/wiki/Cron)
 every 15 minutes for an entire week: to get an idea of when there is a high
 probability of open machines.
 
-<embed type="image/svg+xml" src="/static/record.svg">
+<embed type="image/svg+xml" src="/img/blog/record.svg">
 
 This one is a little interactive.
 

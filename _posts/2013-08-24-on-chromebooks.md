@@ -27,8 +27,8 @@ Google’s ARM processor Chromebook, I discovered what makes Chromebooks, and
 even ChromeOS, so amazing. **I realized there is no need for anything more than
 Chrome**. Even for a power user like me.
 
-<a href="/static/img/full_chromebook.jpg"><img
-src="/static/img/full_chromebook_thumb.jpg" alt="Samsung Chromebook open on a
+<a href="/img/blog/full_chromebook.jpg"><img
+src="/img/blog/full_chromebook_thumb.jpg" alt="Samsung Chromebook open on a
 porch"></a>
 
 Before long, I had completely abandoned my old heavy [2011 Dell
@@ -65,12 +65,12 @@ need to on a laptop that’s under $300.
 for 2 years and 12 free Gogo passes with the Chromebook, which definitely comes
 in handy.
 
-<div> <a href="/static/img/chromebook_keyboard.jpg"><img
-src="/static/img/chromebook_keyboard_thumb.jpg" alt="Samsung Chromebook
-keyboard up close" style="float: left;"></a> <a
-href="/static/img/chromebook_trackpad.jpg"><img
-src="/static/img/chromebook_trackpad_thumb.jpg" alt="Samsung Chromebook
-trackpad up close" style="float: right;"></a> </div> <br>
+<div> <a href="/img/blog/chromebook_keyboard.jpg"><img
+src="/img/blog/chromebook_keyboard_thumb.jpg" alt="Samsung Chromebook
+keyboard up close" style="float: left; width: 50%"></a> <a
+href="/img/blog/chromebook_trackpad.jpg"><img
+src="/img/blog/chromebook_trackpad_thumb.jpg" alt="Samsung Chromebook
+trackpad up close" style="float: right; width: 50%"></a> </div> <br>
 
 While that all of that is nice, the Chromebook still only has 16GB internal
 storage, no DVD drive, no ethernet port, and hardly any processing power. And I
@@ -98,8 +98,8 @@ that channel and enable “Immersive Mode” in `chrome://flags` to get it looki
 like I have in the screenshot ([more
 info](http://gigaom.com/2013/08/22/chrome-os-users-gain-immersive-mode-and-more-in-stable-channel-update/))
 
-<a href="/static/img/fullscreen_gdocs.png"><img
-src="/static/img/fullscreen_gdocs_thumb.png" alt="Demonstrating Google Docs in
+<a href="/img/blog/fullscreen_gdocs.png"><img
+src="/img/blog/fullscreen_gdocs_thumb.png" alt="Demonstrating Google Docs in
 fullscreen immersive mode"></a>
 
 Another little-known feature of Google Docs is creating a new document based
@@ -163,8 +163,8 @@ fullscreen in some other chrome window, I can quickly click the panel’s icon
 and the window will pop open above all of the other windows. I can then
 interact with it and minimize it back into the dock out of my way.
 
-<a href="/static/img/chrome_panel.png"><img
-src="/static/img/chrome_panel_thumb.png" alt="Demonstrating chrome panels with
+<a href="/img/blog/chrome_panel.png"><img
+src="/img/blog/chrome_panel_thumb.png" alt="Demonstrating chrome panels with
 Panel View for Play Music open"></a>
 
 In order to enable them I had to be on the Beta channel of the ChromeOS and
@@ -177,8 +177,7 @@ me:
 
 * [Panel View for Play
 Music](https://chrome.google.com/webstore/detail/panel-view-for-play-music/dimpomefjdddhjmkjgjdokhidjkcmhhn)
-*
-[Hangouts](https://chrome.google.com/webstore/detail/hangouts/nckgahadagoaajjgafhacjanaoiihapd)
+* [Hangouts](https://chrome.google.com/webstore/detail/hangouts/nckgahadagoaajjgafhacjanaoiihapd)
 * [Panel View for Google
 Keep](https://chrome.google.com/webstore/detail/panel-view-for-keep/jccocffecajimkdjgfpjhlpiimcnadhb)
 * [Google Tasks

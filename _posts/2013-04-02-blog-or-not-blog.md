@@ -7,7 +7,7 @@ layout: post
 The original intention of this blog was to serve as a place where I could
 showcase the programming work I have done and detail my process. However, as
 you can tell, there hasn't been any posts since my first ["Hello,
-World!"](/blog/hello-world/) post. Sure, I've been working on projects, but I
+World!"](/2012/12/03/hello-world) post. Sure, I've been working on projects, but I
 just haven't gotten to the point in any of those projects where I felt like I
 could blog in detail about it.
 
