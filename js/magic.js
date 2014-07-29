@@ -2,7 +2,17 @@ window.onload = function () {
 
     // Array to hold all active spells being drawn
     var spells = [];
+
+    // When on, wait a certain amount of time before casting (for initial
+    // load-up)
+    var counting = true;
     
+    // How fast to draw the spells
+    var step = 0.2;
+    
+    // Limit of branches per spell at any time
+    var prune_to = 20;
+
     // Save this query here now that the page is loaded
     var canvas = document.getElementById("magic");
 
@@ -88,8 +98,6 @@ window.onload = function () {
             ax*Math.pow(branch.t, 3) + bx*Math.pow(branch.t, 2) + cx*branch.t + dx, 
             ay*Math.pow(branch.t, 3) + by*Math.pow(branch.t, 2) + cy*branch.t + dy
         );
-        //var step = (branch.t * -0.15) + 0.2;
-        var step = 0.2;
         context.lineTo(
             ax*Math.pow(branch.t+step, 3) + bx*Math.pow(branch.t+step, 2) + cx*(branch.t+step) + dx, 
             ay*Math.pow(branch.t+step, 3) + by*Math.pow(branch.t+step, 2) + cy*(branch.t+step) + dy
@@ -128,7 +136,7 @@ window.onload = function () {
         return newBranches;
     }
 
-    function cast(x, y, angle) {
+    function cast(x, y, angle, chain) {
         // Find random position if not defined
         if (x === undefined) {
             x = Math.floor(Math.random() * (canvas.width + 1));
@@ -152,18 +160,18 @@ window.onload = function () {
             }),
             color:colorString,
             duration:Math.floor(Math.random() * (600 - 50 + 1)) + 50,
+            chain:chain,
         });
     }
 
     /* Most of this funtion is provided by Maissan Inc. in their tutorial:
        http://www.maissan.net/articles/simulating-vines */
-    function drawSpells(context, sort, prune, prune_to) {
+    function drawSpells(context, sort, prune, chain) {
         var AnimationFrame = window.AnimationFrame;
         AnimationFrame.shim();
         var animationFrame = new AnimationFrame(30),
             timeCounter = 0,
             waitTime = 50,
-            lastCast = 0,
             color,
             gradient;
         context.lineWidth = 0.5;
@@ -178,19 +186,9 @@ window.onload = function () {
             }
 
             // if enough time has passed, cast another spell to draw
-            if (timeCounter <= 15000 && (timeCounter - lastCast) >= waitTime) {
-                if (waitTime === 50) {
-                    waitTime = 200;
-                } else if (waitTime < 300) {
-                    waitTime = waitTime * 1.1;
-                }
-
-                lastCast = timeCounter;
-                if (waitTime === 200) {
-                    cast(5, 5, 270); // start position
-                } else {
-                    cast(undefined, undefined, undefined); // random spell position
-                }
+            if (timeCounter >= waitTime && counting) {
+                cast(5, 5, 270, chain); // start position
+                counting = false;
             }
 
             // Draw branches
@@ -233,11 +231,17 @@ window.onload = function () {
                     spells[i].duration--;
 
                 } else {
+                    // cast a new spell at random position
+                    if (spells[i].chain) {
+                        cast(undefined, undefined, undefined, true);
+                    }
                     spells.splice(i, 1); // spell is done now
                 }
             }
             
-            timeCounter++;
+            if (counting) {
+                timeCounter++;
+            }
             frameId = animationFrame.request(animate);
         }
 
@@ -250,7 +254,7 @@ window.onload = function () {
         var x = event.pageX;
         var y = event.pageY;
         
-        cast(x, y, undefined);
+        cast(x, y, undefined, false);
     }
 
     function draw() {
@@ -268,7 +272,7 @@ window.onload = function () {
             var context = canvas.getContext("2d");
 
             // Cast magic spells
-            var frameId = drawSpells(context, false, true, 30);
+            var frameId = drawSpells(context, false, true, true);
         }
     }
 
