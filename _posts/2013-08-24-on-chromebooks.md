@@ -65,12 +65,12 @@ need to on a laptop that’s under $300.
 for 2 years and 12 free Gogo passes with the Chromebook, which definitely comes
 in handy.
 
-<div> <a href="/img/blog/chromebook_keyboard.jpg"><img
+<a href="/img/blog/chromebook_keyboard.jpg"><img
 src="/img/blog/chromebook_keyboard_thumb.jpg" alt="Samsung Chromebook
-keyboard up close" style="float: left; width: 50%"></a> <a
+keyboard up close" class="half-left"></a> <a
 href="/img/blog/chromebook_trackpad.jpg"><img
 src="/img/blog/chromebook_trackpad_thumb.jpg" alt="Samsung Chromebook
-trackpad up close" style="float: right; width: 50%"></a> </div> <br>
+trackpad up close" class="half-right"></a>
 
 While that all of that is nice, the Chromebook still only has 16GB internal
 storage, no DVD drive, no ethernet port, and hardly any processing power. And I

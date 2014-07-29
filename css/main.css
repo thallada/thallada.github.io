@@ -299,6 +299,29 @@ div.pagination {
   background-color: #333;
 }
 
+.post img.half-left {
+  float: none;
+  width: 100%;
+}
+
+.post img.half-right {
+  float: none;
+  width: 100%;
+}
+
+@media (min-width: 40rem) {
+  .post img.half-left {
+    float: left;
+    width: 49%;
+    margin-bottom: 10px;
+  }
+  .post img.half-right {
+    float: right;
+    width: 49%;
+    margin-bottom: 10px;
+  }
+}
+
 /*****************************************************************************/
 /*
 /* Homepage
