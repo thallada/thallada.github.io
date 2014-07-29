@@ -410,6 +410,7 @@ h1.big-name {
 
 a.no-decoration {
   color: #444;
+  display: block;
 }
 
 a.no-decoration:visited {
