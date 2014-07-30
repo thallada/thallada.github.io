@@ -1,5 +1,9 @@
 name: Tyler Hallada - Blog
+description: Musings on technology, literature, and interesting topics
+url: http://hallada.net/blog
 markdown: redcarpet
 pygments: true
 paginate: 10
 paginate_path: "blog/page:num"
+gems:
+    - jekyll-redirect-from
