@@ -1,6 +1,7 @@
 ---
 title: How to Download a RTMP Video
 layout: post
+redirect_from: "/blog/how-download-rtmp-video/"
 ---
 
 [RTMP or Real Time Messaging

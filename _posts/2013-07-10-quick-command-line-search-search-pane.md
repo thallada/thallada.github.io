@@ -1,6 +1,7 @@
 ---
 title: "Quick Command-line Search: search-pane"
 layout: post
+redirect_from: "/blog/search-pane/"
 ---
 
 It's been a while since I last wrote, but I've still been busy. I began my

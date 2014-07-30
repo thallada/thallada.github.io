@@ -1,6 +1,7 @@
 ---
 title: To Blog or Not to Blog
 layout: post
+redirect_from: "/blog/blog-or-not-blog/
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: Hello, World!
 layout: post
+redirect_from: "/blog/hello-world/"
 ---
 
 This past summer, I decided that the basic HTML site that I had at hallada.net

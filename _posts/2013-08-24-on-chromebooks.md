@@ -1,6 +1,7 @@
 ---
 title: On Chromebooks
 layout: post
+redirect_from: "/blog/on-chromebooks/"
 ---
 
 Like a lot of people, I didn’t see a clear use-case for Chromebooks. They’re

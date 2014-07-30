@@ -1,6 +1,7 @@
 ---
 title: Visualizing Laundry Usage
 layout: post
+redirect_from: "/blog/visualizing-laundry-usage/"
 ---
 
 George Mason University uses a system called

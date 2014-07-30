@@ -1,6 +1,7 @@
 ---
 title: GMU Bookstore Homepage Concept and Staw Dispensers
 layout: post
+redirect_from: "/blog/gmu-bookstore-homepage-concept/"
 ---
 
 I have finally finished my second year of college. Now that finals are over, I
