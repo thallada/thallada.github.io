@@ -237,6 +237,16 @@ div.pagination {
   margin-bottom: 10px;
 }
 
+div.rss {
+ text-align: center;
+}
+
+a.rss img {
+  max-width: 16px;
+  max-height: 16px;
+  margin: 0.5rem 0;
+}
+
 /*****************************************************************************/
 /*
 /* Posts
