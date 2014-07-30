@@ -1,7 +1,7 @@
 ---
 title: Publishing Draft Docs to my Blog
 layout: post
-redirect_from: "/blog/publishing-draft-docs-to-my-blog/
+redirect_from: "/blog/publishing-draft-docs-to-my-blog/"
 ---
 
 I like to think that if only I find The Perfect Text Editor I will somehow
