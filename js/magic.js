@@ -7,6 +7,9 @@ window.onload = function () {
     // load-up)
     var counting = true;
     
+    // The amount of time to wait (in number of animate() calls)
+    var waitTime = 20;
+    
     // How fast to draw the spells
     var step = 0.2;
     
@@ -171,7 +174,6 @@ window.onload = function () {
         AnimationFrame.shim();
         var animationFrame = new AnimationFrame(30),
             timeCounter = 0,
-            waitTime = 50,
             color,
             gradient;
         context.lineWidth = 0.5;
