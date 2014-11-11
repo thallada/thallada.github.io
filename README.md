@@ -6,6 +6,33 @@ with [Jekyll](http://jekyllrb.com/).
 
 See it at [http://www.hallada.net/](http://www.hallada.net/).
 
+##Magic##
+Most of the development work of this website went into creating what I like to
+call "magic", or the dynamic background to my homepage. A few seconds after
+loading the page, a branching web of colored tendrils will grow in the upper
+left corner of the page, followed soon after by other "spells" sprouting in
+random locations across the background. Clicking on the background will also
+initiate a starting point for a new spell to appear.
+
+It is meant to represent the imaginative and infinite wonders of programming as
+described eloquently by Fred Brooks in one of my favorite quotes from him in
+his book *The Mythical Man-Month*, which is featured on the page.
+
+A canvas element spans the entire background and [my script](js/magic.js)
+leverages [AnimationFrame](https://github.com/kof/animationFrame) to animate
+the construction of procedurally generated trees of
+[B-splines](http://en.wikipedia.org/wiki/B-spline) for a random range of time.
+I adapted a large portion of the code from Maissian's [tutorial on simulating
+vines](http://www.maissan.net/articles/simulating-vines), making it more
+random, colorful, and more CPU efficient.
+
+It was really fun to tweak various variables in the script and see how the
+animation reacted. It didn't take much tweaking to get the lines to appear like
+lightning flashing in the distant background, or like cracks splitting the
+screen, or like growing forest of sprouting trees. A future project may involve
+putting the magic up on its own webpage and add UI dials to allow anyone to
+change these variables in realtime.
+
 ##Layout & CSS##
 I use a [grid system devised by Adam Kaplan](http://www.adamkaplan.me/grid/) and
 with some pieces from [Jorden Lev](http://jordanlev.github.io/grid/). It is
