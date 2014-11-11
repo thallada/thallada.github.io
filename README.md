@@ -1,6 +1,11 @@
 thallada.github.io
 ==================
 
+This is the latest version of my personal website. It is a static website built
+with [Jekyll](http://jekyllrb.com/).
+
+See it at [http://www.hallada.net/](http://www.hallada.net/).
+
 ##Layout & CSS##
 I use a [grid system devised by Adam Kaplan](http://www.adamkaplan.me/grid/) and
 with some pieces from [Jorden Lev](http://jordanlev.github.io/grid/). It is
