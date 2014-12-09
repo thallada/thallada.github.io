@@ -9,10 +9,10 @@ See it at [http://www.hallada.net/](http://www.hallada.net/).
 ##Magic##
 Most of the development work of this website went into creating what I like to
 call "magic", or the dynamic background to my homepage. A few seconds after
-loading the page, a branching web of colored tendrils will grow in the upper
-left corner of the page, followed soon after by other "spells" sprouting in
-random locations across the background. Clicking on the background will also
-initiate a starting point for a new spell to appear.
+loading the page, a branching web of colored tendrils will grow in a random
+position on the page, followed soon after by other "spells" sprouting in random
+locations across the background. Clicking on the background will also initiate a
+starting point for a new spell to appear.
 
 It is meant to represent the imaginative and infinite wonders of programming as
 described eloquently by Fred Brooks in one of my favorite quotes from him in
