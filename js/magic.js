@@ -189,7 +189,7 @@ window.onload = function () {
 
             // if enough time has passed, cast another spell to draw
             if (timeCounter >= waitTime && counting) {
-                cast(5, 5, 270, chain); // start position
+                cast(undefined, undefined, undefined, chain); // start position
                 counting = false;
             }
 
