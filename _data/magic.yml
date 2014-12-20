@@ -1,0 +1,9 @@
+counting: false
+waitTime: 20
+step: 0.4
+prune_to: 15
+maxDuration: 600
+minDuration: 50
+splineLength: 15
+maxAngleChange: 180
+minAngleChange: 90
