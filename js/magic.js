@@ -1,5 +1,5 @@
 var Magic = function (options) {
-    options = options || {}
+    options = options || {};
     // Array to hold all active spells being drawn
     this.spells = [];
 
@@ -33,7 +33,7 @@ var Magic = function (options) {
 
     // Save this query here now that the page is loaded
     this.canvas = document.getElementById("magic");
-}
+};
 
 
 /* Get the height and width of full document. To avoid browser
@@ -53,7 +53,7 @@ Magic.prototype.getDocumentDimensions = function () {
                          html.offsetWidth);
     
     return {"height": height, "width": width};
-}
+};
 
 /* Specifies what will be added to the red, green, and blue values of the
  * color at each interval. */
@@ -67,7 +67,7 @@ Magic.prototype.pickGradient = function () {
                  magnitudes[Math.floor(Math.random() * 3)],
             "b": directions[Math.floor(Math.random() * 3)] *
                  magnitudes[Math.floor(Math.random() * 3)]};
-}
+};
 
 /* Alters the given color by the given gradient and returns both.
 
@@ -96,14 +96,14 @@ Magic.prototype.nextColor = function(color, gradient) {
     }
 
     return {"color": color, "gradient": gradient};
-}
+};
 
 /* Choose a random RGB color to begin the color gradient with */
 Magic.prototype.pickRandomColor = function() {
     return {"r": Math.floor(Math.random() * (255 + 1)),
             "g": Math.floor(Math.random() * (255 + 1)),
             "b": Math.floor(Math.random() * (255 + 1))};
-}
+};
 
 Magic.prototype.drawSplineSegment = function(branch, context) {
     var ax = (-branch.points[0].x + 3*branch.points[1].x - 3*branch.points[2].x + branch.points[3].x) / 6;
@@ -123,7 +123,7 @@ Magic.prototype.drawSplineSegment = function(branch, context) {
         ay*Math.pow(branch.t+this.step, 3) + by*Math.pow(branch.t+this.step, 2) + cy*(branch.t+this.step) + dy
     );
     branch.t += this.step;
-}
+};
 
 Magic.prototype.splitBranch = function(branch) {
     var newBranches = [];
@@ -154,7 +154,7 @@ Magic.prototype.splitBranch = function(branch) {
 
     }
     return newBranches;
-}
+};
 
 Magic.prototype.cast = function(x, y, angle, chain) {
     // Find random position if not defined
@@ -182,7 +182,7 @@ Magic.prototype.cast = function(x, y, angle, chain) {
         duration:Math.floor(Math.random() * (this.maxDuration - this.minDuration + 1)) + 50,
         chain:chain,
     });
-}
+};
 
 /* Most of this funtion is provided by Maissan Inc. in their tutorial:
    http://www.maissan.net/articles/simulating-vines */
@@ -268,14 +268,14 @@ Magic.prototype.cast = function(x, y, angle, chain) {
     // Drawing interval
     var frameId = animationFrame.request(animate);
     return frameId;
-}
+};
 
 Magic.prototype.canvasClickHandler = function(event) {
     var x = event.pageX;
     var y = event.pageY;
     
     this.cast(x, y, undefined, false);
-}
+};
 
 Magic.prototype.draw = function() {
     var interval_time = 2000;
@@ -295,4 +295,4 @@ Magic.prototype.draw = function() {
         // Cast magic spells
         var frameId = this.drawSpells(context, false, true, true);
     }
-}
+};
