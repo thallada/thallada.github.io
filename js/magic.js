@@ -31,6 +31,8 @@ var Magic = function (options) {
     // Average length of new spline (branch)
     this.splineLength = options.splineLength || 15;
 
+    this.paused = false;
+
     // Save this query here now that the page is loaded
     this.canvas = document.getElementById("magic");
 };
@@ -104,6 +106,10 @@ Magic.prototype.pickRandomColor = function() {
             "g": Math.floor(Math.random() * (255 + 1)),
             "b": Math.floor(Math.random() * (255 + 1))};
 };
+
+Magic.prototype.clear = function() {
+  this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+}
 
 Magic.prototype.drawSplineSegment = function(branch, context) {
     var ax = (-branch.points[0].x + 3*branch.points[1].x - 3*branch.points[2].x + branch.points[3].x) / 6;
@@ -205,62 +211,64 @@ Magic.prototype.cast = function(x, y, angle, chain) {
             self.canvas.width = dimensions.width;
         }
 
-        // if enough time has passed, cast another spell to draw
-        if (timeCounter >= self.waitTime && self.counting) {
-            self.cast(undefined, undefined, undefined, chain); // start position
-            self.counting = false;
-        }
+        if (!self.paused) {
+          // if enough time has passed, cast another spell to draw
+          if (timeCounter >= self.waitTime && self.counting) {
+              self.cast(undefined, undefined, undefined, chain); // start position
+              self.counting = false;
+          }
 
-        // Draw branches
-        for (var i in self.spells) {
-            context.beginPath();
-            context.strokeStyle = self.spells[i].color;
+          // Draw branches
+          for (var i in self.spells) {
+              context.beginPath();
+              context.strokeStyle = self.spells[i].color;
 
-            if (self.spells[i].duration > 0) {
-                for (var j in self.spells[i].branches) {
-                    self.drawSplineSegment(self.spells[i].branches[j], context);
+              if (self.spells[i].duration > 0) {
+                  for (var j in self.spells[i].branches) {
+                      self.drawSplineSegment(self.spells[i].branches[j], context);
 
-                    // When finished drawing splines, create a new set of branches
-                    if (self.spells[i].branches[j].t >= 1) {       
-                        
-                        var newBranches = self.splitBranch(self.spells[i].branches[j]);
-                        
-                        // Replace old branch with two new branches
-                        self.spells[i].branches.splice(j, 1);
-                        self.spells[i].branches = self.spells[i].branches.concat(newBranches);
-                    }
-                }
+                      // When finished drawing splines, create a new set of branches
+                      if (self.spells[i].branches[j].t >= 1) {       
+                          
+                          var newBranches = self.splitBranch(self.spells[i].branches[j]);
+                          
+                          // Replace old branch with two new branches
+                          self.spells[i].branches.splice(j, 1);
+                          self.spells[i].branches = self.spells[i].branches.concat(newBranches);
+                      }
+                  }
 
-                // If over 10 branches, prune the branches
-                if (prune) {
-                    if (sort) {
-                        while (self.spells[i].branches.length > self.prune_to) {
-                            self.spells[i].branches.pop();
-                        }
-                    } else {
-                        while (self.spells[i].branches.length > self.prune_to) {
-                            self.spells[i].branches.splice(
-                                    Math.floor(Math.random() * self.spells[i].branches.length),
-                                    1);
-                        }   
-                    }
-                }
+                  // If over 10 branches, prune the branches
+                  if (prune) {
+                      if (sort) {
+                          while (self.spells[i].branches.length > self.prune_to) {
+                              self.spells[i].branches.pop();
+                          }
+                      } else {
+                          while (self.spells[i].branches.length > self.prune_to) {
+                              self.spells[i].branches.splice(
+                                      Math.floor(Math.random() * self.spells[i].branches.length),
+                                      1);
+                          }   
+                      }
+                  }
 
-                context.stroke();
-                context.closePath();
-                self.spells[i].duration--;
+                  context.stroke();
+                  context.closePath();
+                  self.spells[i].duration--;
 
-            } else {
-                // cast a new spell at random position
-                if (self.spells[i].chain) {
-                    self.cast(undefined, undefined, undefined, true);
-                }
-                self.spells.splice(i, 1); // spell is done now
-            }
-        }
-        
-        if (self.counting) {
-            timeCounter++;
+              } else {
+                  // cast a new spell at random position
+                  if (self.spells[i].chain) {
+                      self.cast(undefined, undefined, undefined, true);
+                  }
+                  self.spells.splice(i, 1); // spell is done now
+              }
+          }
+          
+          if (self.counting) {
+              timeCounter++;
+          }
         }
         frameId = animationFrame.request(animate);
     }
@@ -290,9 +298,9 @@ Magic.prototype.draw = function() {
         var self = this;
         this.canvas.addEventListener("click", function () { self.canvasClickHandler.apply(self, arguments); });
 
-        var context = this.canvas.getContext("2d");
+        this.context = this.canvas.getContext("2d");
 
         // Cast magic spells
-        var frameId = this.drawSpells(context, false, true, true);
+        var frameId = this.drawSpells(this.context, false, true, true);
     }
 };

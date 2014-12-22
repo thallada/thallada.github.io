@@ -5,6 +5,94 @@ title: Tyler Hallada
 
 <script>
   window.onload = function () {
-    new Magic({{ site.data.magic | jsonify }}).draw();
+    window.magicObj = new Magic({{site.data.magic | jsonify}});
+    magicObj.draw();
+    document.getElementById("play-pause").addEventListener("click", togglePlay);
+    document.getElementById("hide-show").addEventListener("click", togglePanel);
+    document.getElementById("clear").addEventListener("click", clear);
+  }
+
+  function updateMagic(key, value) {
+    magicObj[key] = value;
+  }
+
+  function togglePanel(event) {
+    var options = document.getElementById("options");
+    if (options.style.display === "none") {  // hidden
+      options.style.display = "block";
+      event.target.innerHTML = "Hide";
+    } else {  // shown
+      options.style.display = "none";
+      event.target.innerHTML = "Show";
+    }
+  }
+
+  function togglePlay(event) {
+    if (magicObj.paused) {
+      magicObj.paused = false;
+      event.target.innerHTML = "Pause";
+    } else {
+      magicObj.paused = true;
+      event.target.innerHTML = "Play";
+    }
+  }
+
+  function clear(event) {
+    magicObj.clear();
   }
 </script>
+<div class="options-panel">
+  <div class="controls-tab">
+    <div class="controls">
+      <button id="play-pause">Pause</button>
+      <button id="clear">Clear</button>
+      <button id="hide-show">Hide</button>
+    </div>
+  </div>
+  <div id="options" class="container-full" style="display:block;">
+    <div class="row clearfix">
+      <div class="column fourth">
+        <form oninput="output.value=speed.value;updateMagic('step', parseFloat(speed.value))">
+          <label for="speed">Speed</label>
+          <input type="range" min=0.01 max=2 value={{site.data.magic.step}} id="speed" step=0.01>
+          <output name="output" for="speed">{{site.data.magic.step}}</output>
+        </form>
+      </div>
+      <div class="column fourth">
+        <form oninput="output.value=minDuration.value;updateMagic('minDuration', parseInt(minDuration.value))">
+          <label for="minDuration">Min Spell Duration</label>
+          <input type="range" min=1 max=1000 value={{site.data.magic.minDuration}} id="minDuration" step=1>
+          <output name="output" for="minDuration">{{site.data.magic.minDuration}}</output>
+        </form>
+      </div>
+      <div class="column fourth">
+        <form oninput="output.value=maxDuration.value;updateMagic('maxDuration', parseInt(maxDuration.value))">
+          <label for="maxDuration">Max Spell Duration</label>
+          <input type="range" min=1 max=1000 value={{site.data.magic.maxDuration}} id="maxDuration" step=1>
+          <output name="output" for="maxDuration">{{site.data.magic.maxDuration}}</output>
+        </form>
+      </div>
+      <div class="column fourth">
+        <form oninput="output.value=splineLength.value;updateMagic('splineLength', parseInt(splineLength.value))">
+          <label for="splineLength">Spline Length</label>
+          <input type="range" min=1 max=500 value={{site.data.magic.splineLength}} id="splineLength" step=1>
+          <output name="output" for="splineLength">{{site.data.magic.splineLength}}</output>
+        </form>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="column half">
+        <form oninput="output.value=minAngleChange.value;updateMagic('minAngleChange', parseInt(minAngleChange.value))">
+          <label for="minAngleChange">Min Angle</label>
+          <input type="range" min=0 max=360 value={{site.data.magic.minAngleChange}} id="minAngleChange" step=1>
+          <output name="output" for="minAngleChange">{{site.data.magic.minAngleChange}}</output>
+        </form>
+      </div>
+      <div class="column half">
+        <form oninput="output.value=maxAngleChange.value;updateMagic('maxAngleChange', parseInt(maxAngleChange.value))">
+          <label for="maxAngleChange">Max Angle</label>
+          <input type="range" min=0 max=360 value={{site.data.magic.maxAngleChange}} id="maxAngleChange" step=1>
+          <output name="output" for="maxAngleChange">{{site.data.magic.maxAngleChange}}</output>
+        </form>
+      </div>
+</div>
