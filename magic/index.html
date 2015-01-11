@@ -16,24 +16,33 @@ title: Tyler Hallada
     magicObj[key] = value;
   }
 
+  function findParentWithId(el, id) {
+    while (el.getAttribute('id') !== id) {
+      el = el.parentElement;
+    }
+    return el;
+  }
+
   function togglePanel(event) {
     var options = document.getElementById("options");
+    var button = findParentWithId(event.target, "hide-show");
     if (options.style.display === "none") {  // hidden
       options.style.display = "block";
-      event.target.innerHTML = "Hide";
+      button.innerHTML = "<i class=\"icon ion-chevron-down\"></i>";
     } else {  // shown
       options.style.display = "none";
-      event.target.innerHTML = "Show";
+      button.innerHTML = "<i class=\"icon ion-chevron-up\"></i>";
     }
   }
 
   function togglePlay(event) {
+    var button = findParentWithId(event.target, "play-pause");
     if (magicObj.paused) {
       magicObj.paused = false;
-      event.target.innerHTML = "Pause";
+      button.innerHTML = "<i class=\"icon ion-pause\"></i>";
     } else {
       magicObj.paused = true;
-      event.target.innerHTML = "Play";
+      button.innerHTML = "<i class=\"icon ion-play\"></i>";
     }
   }
 
@@ -44,9 +53,9 @@ title: Tyler Hallada
 <div class="options-panel">
   <div class="controls-tab">
     <div class="controls">
-      <button id="play-pause">Pause</button>
-      <button id="clear">Clear</button>
-      <button id="hide-show">Hide</button>
+      <button id="play-pause"><i class="icon ion-pause"></i></button>
+      <button id="clear"><i class="icon ion-refresh"></i></button>
+      <button id="hide-show"><i class="icon ion-chevron-down"></i></button>
     </div>
   </div>
   <div id="options" class="container-full" style="display:block;">

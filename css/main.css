@@ -439,6 +439,11 @@ a.no-decoration:hover {
 /*
 /*****************************************************************************/
 
+i.icon {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 div.options-panel {
   position: fixed;
   bottom: 0;
