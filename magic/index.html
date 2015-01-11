@@ -75,27 +75,34 @@ title: Tyler Hallada
       <div class="column fourth">
         <form oninput="output.value=splineLength.value;updateMagic('splineLength', parseInt(splineLength.value))">
           <label for="splineLength">Spline Length</label>
-          <input type="range" min=1 max=500 value={{site.data.magic.splineLength}} id="splineLength" step=1>
+          <input type="range" min=1 max=300 value={{site.data.magic.splineLength}} id="splineLength" step=1>
           <output name="output" for="splineLength">{{site.data.magic.splineLength}}</output>
         </form>
       </div>
     </div>
     <div class="row clearfix">
-      <div class="column third">
+      <div class="column fourth">
         <form oninput="output.value=minAngleChange.value;updateMagic('minAngleChange', parseInt(minAngleChange.value))">
           <label for="minAngleChange">Min Angle</label>
           <input type="range" min=0 max=360 value={{site.data.magic.minAngleChange}} id="minAngleChange" step=1>
           <output name="output" for="minAngleChange">{{site.data.magic.minAngleChange}}</output>
         </form>
       </div>
-      <div class="column third">
+      <div class="column fourth">
         <form oninput="output.value=maxAngleChange.value;updateMagic('maxAngleChange', parseInt(maxAngleChange.value))">
           <label for="maxAngleChange">Max Angle</label>
           <input type="range" min=0 max=360 value={{site.data.magic.maxAngleChange}} id="maxAngleChange" step=1>
           <output name="output" for="maxAngleChange">{{site.data.magic.maxAngleChange}}</output>
         </form>
       </div>
-      <div class="column third">
+      <div class="column fourth">
+        <form oninput="output.value=prune_to.value;updateMagic('prune_to', parseInt(prune_to.value))">
+          <label for="prune_to">Branches</label>
+          <input type="range" min=0 max=300 value={{site.data.magic.prune_to}} id="prune_to" step=1>
+          <output name="output" for="prune_To">{{site.data.magic.prune_to}}</output>
+        </form>
+      </div>
+      <div class="column fourth">
         <form onchange="output.value=randomColored.checked;updateMagic('randomColored', randomColored.checked)">
           <label for="randomColored">Randomly Colored</label>
           <input type="checkbox" {% if site.data.magic.randomColored %}checked{% endif %} id="randomColored">
