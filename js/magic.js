@@ -31,6 +31,9 @@ var Magic = function (options) {
     // Average length of new spline (branch)
     this.splineLength = options.splineLength || 15;
 
+    // Whether new spells are cast with a new random color
+    this.randomColored = options.randomColored || true;
+
     this.paused = false;
 
     // Save this query here now that the page is loaded
@@ -174,8 +177,11 @@ Magic.prototype.cast = function(x, y, angle, chain) {
         angle = Math.random() * 360;
     }
 
-    var color = this.pickRandomColor();
-    var colorString = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+    var colorString = "rgb(10,10,10)";
+    if (this.randomColored) {
+        var color = this.pickRandomColor();
+        colorString = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+    }
 
     // Create new spell (branch)
     this.spells.push({

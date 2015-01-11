@@ -432,3 +432,52 @@ a.no-decoration:hover {
   color: #444;
   text-decoration: none;
 }
+
+/*****************************************************************************/
+/*
+/* Magic
+/*
+/*****************************************************************************/
+
+div.options-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  width: 100%;
+  z-index: 10;
+  height: auto;
+  background-color: rgba(140,120,100,0.75);
+  color: white;
+}
+
+div.controls-tab {
+  position: relative;
+}
+
+div.controls {
+  position: absolute;
+  top: -2.6rem;
+  right: 1rem;
+  height: 2rem;
+  padding-right: 5px;
+  padding-left: 5px;
+  background-color: rgba(140,120,100,0.75);
+}
+
+div.controls button {
+  padding: 0.25rem;
+  margin-top: 0.25rem;
+  background-color: rgb(100, 100, 100);
+  border: 1px grey solid;
+  color: white;
+  font-size: small;
+}
+
+div.options-panel form {
+  text-align: center
+}
+
+div.options-panel form label {
+  display: block;
+}

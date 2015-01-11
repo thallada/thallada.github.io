@@ -7,3 +7,4 @@ minDuration: 50
 splineLength: 15
 maxAngleChange: 180
 minAngleChange: 90
+randomColored: true

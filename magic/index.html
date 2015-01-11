@@ -81,18 +81,25 @@ title: Tyler Hallada
       </div>
     </div>
     <div class="row clearfix">
-      <div class="column half">
+      <div class="column third">
         <form oninput="output.value=minAngleChange.value;updateMagic('minAngleChange', parseInt(minAngleChange.value))">
           <label for="minAngleChange">Min Angle</label>
           <input type="range" min=0 max=360 value={{site.data.magic.minAngleChange}} id="minAngleChange" step=1>
           <output name="output" for="minAngleChange">{{site.data.magic.minAngleChange}}</output>
         </form>
       </div>
-      <div class="column half">
+      <div class="column third">
         <form oninput="output.value=maxAngleChange.value;updateMagic('maxAngleChange', parseInt(maxAngleChange.value))">
           <label for="maxAngleChange">Max Angle</label>
           <input type="range" min=0 max=360 value={{site.data.magic.maxAngleChange}} id="maxAngleChange" step=1>
           <output name="output" for="maxAngleChange">{{site.data.magic.maxAngleChange}}</output>
+        </form>
+      </div>
+      <div class="column third">
+        <form onchange="output.value=randomColored.checked;updateMagic('randomColored', randomColored.checked)">
+          <label for="randomColored">Randomly Colored</label>
+          <input type="checkbox" {% if site.data.magic.randomColored %}checked{% endif %} id="randomColored">
+          <output name="output" for="randomColored">{{site.data.magic.randomColored}}</output>
         </form>
       </div>
 </div>
