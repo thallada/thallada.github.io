@@ -8,7 +8,8 @@ title: Tyler Hallada
     window.magicObj = new Magic({{site.data.magic | jsonify}});
     magicObj.draw();
     document.getElementById("play-pause").addEventListener("click", togglePlay);
-    document.getElementById("hide-show").addEventListener("click", togglePanel);
+    document.getElementById("hide-show-mobile").addEventListener("click", togglePanel);
+    document.getElementById("hide-show-desktop").addEventListener("click", togglePanel);
     document.getElementById("clear").addEventListener("click", clear);
   }
 
@@ -16,8 +17,8 @@ title: Tyler Hallada
     magicObj[key] = value;
   }
 
-  function findParentWithId(el, id) {
-    while (el.getAttribute('id') !== id) {
+  function findParentWithIds(el, ids) {
+    while (ids.indexOf(el.getAttribute('id')) === -1) {
       el = el.parentElement;
     }
     return el;
@@ -25,8 +26,8 @@ title: Tyler Hallada
 
   function togglePanel(event) {
     var options = document.getElementById("options");
-    var button = findParentWithId(event.target, "hide-show");
-    if (options.style.display === "none") {  // hidden
+    var button = findParentWithIds(event.target, ["hide-show-desktop", "hide-show-mobile"]);
+    if (options.offsetParent === null) {  // hidden
       options.style.display = "block";
       button.innerHTML = "<i class=\"icon ion-chevron-down\"></i>";
     } else {  // shown
@@ -36,7 +37,7 @@ title: Tyler Hallada
   }
 
   function togglePlay(event) {
-    var button = findParentWithId(event.target, "play-pause");
+    var button = findParentWithIds(event.target, ["play-pause"]);
     if (magicObj.paused) {
       magicObj.paused = false;
       button.innerHTML = "<i class=\"icon ion-pause\"></i>";
@@ -55,10 +56,11 @@ title: Tyler Hallada
     <div class="controls">
       <button id="play-pause"><i class="icon ion-pause"></i></button>
       <button id="clear"><i class="icon ion-refresh"></i></button>
-      <button id="hide-show"><i class="icon ion-chevron-down"></i></button>
+      <button id="hide-show-mobile" class="hide-desktop"><i class="icon ion-chevron-up"></i></button>
+      <button id="hide-show-desktop" class="hide-mobile"><i class="icon ion-chevron-down"></i></button>
     </div>
   </div>
-  <div id="options" class="container-full" style="display:block;">
+  <div id="options" class="container-full hide-mobile">
     <div class="row clearfix">
       <div class="column fourth">
         <form oninput="output.value=speed.value;updateMagic('step', parseFloat(speed.value))">

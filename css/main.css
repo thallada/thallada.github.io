@@ -158,10 +158,13 @@ img { width: auto; max-width: 100%; height: auto; }
 .hide-mobile {
   display: none;
 }
+.hide-desktop {
+  display: initial;
+}
 
 @media (min-width: 40rem) {
   .hide-desktop { display: none }
-  .hide-mobile { }
+  .hide-mobile { display: initial }
 }
 
 /*****************************************************************************/
@@ -439,9 +442,9 @@ a.no-decoration:hover {
 /*
 /*****************************************************************************/
 
-i.icon {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
+div.controls-tab button {
+  width: 28px;
+  height: 28px;
 }
 
 div.options-panel {
