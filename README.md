@@ -29,9 +29,11 @@ random, colorful, and more CPU efficient.
 It was really fun to tweak various variables in the script and see how the
 animation reacted. It didn't take much tweaking to get the lines to appear like
 lightning flashing in the distant background, or like cracks splitting the
-screen, or like growing forest of sprouting trees. A future project may involve
-putting the magic up on its own webpage and add UI dials to allow anyone to
-change these variables in realtime.
+screen, or like growing forest of sprouting trees.
+
+You can play around with these variables yourself on the [/magic
+page](http://www.hallada.net/magic) which has sliders for tweaking the
+animations in realtime.
 
 ##Layout & CSS##
 I use a [grid system devised by Adam Kaplan](http://www.adamkaplan.me/grid/) and
@@ -104,6 +106,20 @@ desktop, use `hide-desktop` instead.
     </div>
 </div>
 ```
+
+I had an issue with displaying elements on desktop that had the class
+"hide-mobile", so you can add the following classes to make sure they redisplay
+in the right display type correctly:
+
+* `hide-mobile-block`
+* `hide-mobile-inline-block`
+* `hide-mobile-inline`
+* `hide-deskop-block`
+* `hide-desktop-inline-block`
+* `hide-desktop-inline`
+
+I could add more for each `display` property, but I'm trying to find a better
+way of fixing this without adding these second classes.
 
 Another note: I use [box-sizing (as suggested by Paul
 Irish)](http://www.paulirish.com/2012/box-sizing-border-box-ftw/), which I think

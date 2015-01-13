@@ -158,17 +158,15 @@ img { width: auto; max-width: 100%; height: auto; }
 .hide-mobile {
   display: none;
 }
-.hide-desktop-inline-block {
-  display: inline-block;
-}
-.hide-desktop-block {
-  display: block;
-}
+.hide-desktop-inline-block { display: inline-block }
+.hide-desktop-block { display: block }
+.hide-desktop-inline { display: inline }
 
 @media (min-width: 40rem) {
   .hide-desktop { display: none }
   .hide-mobile-inline-block { display: inline-block }
   .hide-mobile-block { display: block }
+  .hide-mobile-inline { display: inline }
 }
 
 /*****************************************************************************/
