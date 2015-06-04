@@ -105,6 +105,13 @@ because evince can darken pdfs.
 Select View > Invert Colors and then Edit > Save Current Settings as Default and
 now most pdfs will be displayed as white text on black background.
 
+###gimp###
+
+Gimp allows you to change themes easily. [Gimp GTK2 Photoshop CS6
+Theme](http://gnome-look.org/content/show.php?content=160952) is my favorite
+dark theme. Put that in `~/.gimp-2.8/themes/` (or whichever gimp version is
+installed) and, in Gimp, change the theme at Edit > Preferences > Theme.
+
 ###Firefox###
 
 I had to hack firefox a lot to get it to be universally dark since the web
