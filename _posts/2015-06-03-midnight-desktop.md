@@ -210,6 +210,10 @@ monitor and I have two. Luckily, someone made a utility that would invert colors
 on more than one monitor called
 [xrandr-invert-colors](https://github.com/zoltanp/xrandr-invert-colors).
 
+The only problem was that this utility seemed to interfere with redshift, so I
+made [a script that would disable redshift before
+inverting](https://github.com/thallada/dotfiles/blob/master/invert/bin/invert).
+
 ```bash
 #!/bin/bash
 inverted=$(xcalib -a -p | head -c 1)
@@ -232,9 +236,6 @@ if [ "$inverted" == "W" ]
 fi
 ```
 
-The only problem was that this utility seemed to interfere with redshift, so I
-made [a script that would disable redshift before
-inverting](https://github.com/thallada/dotfiles/blob/master/invert/bin/invert).
 
 And, now I have [a
 shortcut](https://github.com/thallada/dotfiles/commit/e5153a90fa7c89a0e2ca16e5943f0fa20d4a9512)
@@ -253,5 +254,7 @@ For firefox, I made a global userstyle to invert images and videos.
     }
 }
 ```
+
+Whenever I invert the colors, I enable that global theme on firefox.
 
 ![Midnight inverted into a day theme](/assets/midnight_screenshot_inverted.png)
