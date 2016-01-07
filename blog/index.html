@@ -4,26 +4,28 @@ title: Tyler Hallada - Blog
 ---
 
 {% for post in paginator.posts %}
-  <div class="card">
-    <div class="row clearfix post-header">
-      <div class="column three-fourths">
-        <a href="{{ post.url }}"><h2 class="post-title">{{ post.title }}</h2></a>
+  {% if post.hidden == null or post.hidden == false %}
+    <div class="card">
+      <div class="row clearfix post-header">
+        <div class="column three-fourths">
+          <a href="{{ post.url }}"><h2 class="post-title">{{ post.title }}</h2></a>
+        </div>
+        <div class="column fourth">
+          <span class="timestamp">{{ post.date | date_to_string }}</span> 
+        </div>
       </div>
-      <div class="column fourth">
-        <span class="timestamp">{{ post.date | date_to_string }}</span> 
+      <div class="row clearfix">
+        <div class="column full post">
+          {{ post.excerpt }}
+        </div>
+      </div>
+      <div class="row clearfix more-row">
+        <div class="column full">
+          <a href="{{ post.url }}" class="read-more">Read More &raquo;</a>
+        </div>
       </div>
     </div>
-    <div class="row clearfix">
-      <div class="column full post">
-        {{ post.excerpt }}
-      </div>
-    </div>
-    <div class="row clearfix more-row">
-      <div class="column full">
-        <a href="{{ post.url }}" class="read-more">Read More &raquo;</a>
-      </div>
-    </div>
-  </div>
+  {% endif %}
 {% endfor %}
 
 <div class="row clearfix pagination">
