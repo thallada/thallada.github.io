@@ -11,7 +11,7 @@ algorithm really shines when you can see concrete examples.
 
 Skip to the **Applications** part of this post to see the outputs from my
 experimentation if you are already familiar with DeepDream, Deep Style, and all
-the other latest research in generating images with deep neural networks.
+the other latest happenings in generating images with deep neural networks.
 
 ###Background and History###
 
