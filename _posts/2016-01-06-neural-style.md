@@ -1,7 +1,6 @@
 ---
 title: Generating Realistic Satellite Imagery with Deep Neural Networks
 layout: post
-hidden: true
 ---
 
 I've been doing a lot of experimenting with [neural-style](https://github.com/jcjohnson/neural-style)
