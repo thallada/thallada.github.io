@@ -27,7 +27,7 @@ Since this is questionably legal, make sure you understand any Terms of
 Services you accepted or laws in your locality regarding this before you follow
 the steps below ;).
 
-###Have Linux###
+### Have Linux
 
 Most of these instructions will assume you have Ubuntu, but
 most distributions will work.
@@ -36,7 +36,7 @@ While RTMPDump works on a variety of operating systems, I've only researched
 how to do this on Linux. Feel free to comment if you know how to do this in
 Windows or OSX.
 
-###Install RTMPDump###
+### Install RTMPDump
 
 This open source goodness can be found at
 [http://rtmpdump.mplayerhq.hu/](http://rtmpdump.mplayerhq.hu/) or you can just
@@ -47,7 +47,7 @@ typing the following into your terminal:
 sudo apt-get install rtmpdump
 ~~~
 
-###Redirect ALL the RTMP!###
+### Redirect ALL the RTMP!
 
 Now we need to configure your firewall to redirect
 all RTMP traffic to a local port on your computer (Note: this will screw up any
@@ -59,7 +59,7 @@ the following into your terminal, there should be no output from the command:
 sudo iptables -t nat -A OUTPUT -p tcp --dport 1935 -j REDIRECT
 ~~~
 
-###Run rtmpsrv###
+### Run rtmpsrv
 
 When you install `rtmpdump`, a program called `rtmpsrv`
 should have been bundled with it and installed as well. We will want to run
@@ -73,7 +73,7 @@ This should output something that looks like this:
 
     Streaming on rtmp://0.0.0.0:1935
 
-###Feed rtmpsrv the Precious Video###
+### Feed rtmpsrv the Precious Video
 
 Now go to your browser and open/refresh
 the page with the desired video. Try playing the video. If nothing happens and
@@ -87,7 +87,7 @@ will need it later.
 
 You can CTRL+C out of rtmpsrv now that we have what we need.
 
-###Undo the Redirection###
+### Undo the Redirection
 
 You must undo the iptables redirection command we
 performed earlier before you can do anything else, so run this in your
@@ -97,14 +97,14 @@ terminal:
 sudo iptables -t nat -D OUTPUT -p tcp --dport 1935 -j REDIRECT
 ~~~
 
-###Finally, Download the Precious Video###
+### Finally, Download the Precious Video
 
 Now paste that command you copied
 from the rtmpsrv output in the step before last into your terminal prompt and
 hit enter. You should now see a torrent of `INFO` printout along with a
 percentage as the video is being downloaded.
 
-###Feast Eyes on Precious Video###
+### Feast Eyes on Precious Video
 
 Once downloaded, the video file, which has a
 `flv` extension and was named by the `-o` parameter in the command you copied

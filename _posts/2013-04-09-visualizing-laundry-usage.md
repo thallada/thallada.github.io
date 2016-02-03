@@ -26,7 +26,7 @@ which made it easy for me to dive right in. I'll probably try out
 [d3js](http://d3js.org/) for my next visualization project though, it looks a
 whole lot more advanced.
 
-###Current laundry usage charts###
+### Current laundry usage charts
 
 I created an [app](/laundry) in [Django](https://www.djangoproject.com/) to
 display current laundry machine usage charts for all of the laundry rooms on
@@ -47,7 +47,7 @@ folder).
 The point was to make this as dead simple and easy to use as possible. Do you
 think I succeeded?
 
-###Weekly laundry usage chart###
+### Weekly laundry usage chart
 
 Knowing the *current* laundry machine usage is nice for saving a wasted trip
 down to the laundry room, but what if you wanted to plan ahead and do your

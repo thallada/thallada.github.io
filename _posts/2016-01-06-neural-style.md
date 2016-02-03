@@ -12,7 +12,7 @@ Skip to the **Applications** part of this post to see the outputs from my
 experimentation if you are already familiar with DeepDream, Deep Style, and all
 the other latest happenings in generating images with deep neural networks.
 
-###Background and History###
+### Background and History
 
 On [May 18, 2015 at 2 a.m., Alexander
 Mordvintsev](https://medium.com/backchannel/inside-deep-dreams-how-google-made-its-computers-go-crazy-83b9d24e66df#.g4t69y8wy),
@@ -84,7 +84,7 @@ top-of-the-line GTX Titan X graphics card. Still, I believe this technology has
 a lot of potential for generating game art even if it can't act as a real-time
 filter.
 
-###Applications: Generating Satellite Images for Procedural World Maps###
+### Applications: Generating Satellite Images for Procedural World Maps
 
 I personally know very little machine learning, but I have been able to produce
 a lot of interesting results by using the tool provided by
@@ -183,7 +183,7 @@ treatment plant in Peru](/assets/treatment_plant.jpg)
 ![Output of random clouds and water treatment
 plant](/assets/random_treatment_plant.png)
 
-###Applications: More Fun###
+### Applications: More Fun
 
 For fun, here are some other outputs that I liked.
 
@@ -250,7 +250,7 @@ Brook by Albert Bierstadt](/assets/mountain_brook.jpg):
 ![Output of Norwegian forest and The Mountain
 Brook](/assets/mountain_brook_hill.png)
 
-###Limitations###
+### Limitations
 
 I don't have infinite money for a GTX Titan X, so I'm stuck with using OpenCL on
 my more-than-a-few-generations-old AMD card. It takes about a half-hour to

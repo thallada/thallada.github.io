@@ -8,7 +8,7 @@ protect my eyes from the blinding light of my monitors I've tooled my desktop
 environment over the course of a few months to be as dark as possible. It has
 gotten complex enough that I thought it would be worth sharing now.
 
-###dotfiles###
+### dotfiles
 
 Before I begin, I want to note that all the configuration for the setup I'm
 describing is stored in a [dotfiles repo on my github
@@ -18,7 +18,7 @@ the master branch fairly often, but the
 [midnight](https://github.com/thallada/dotfiles/tree/midnight) branch will
 always contain the setup described here.
 
-###bspwm###
+### bspwm
 
 Inspired by [/r/unixporn](http://www.reddit.com/r/unixporn), I decided to switch
 from gnome to bspwm, a minimal tiling window manager that positions windows like
@@ -38,7 +38,7 @@ under the home directory and it's super easy to add my own. The hotkeys make
 this superior to gnome for me because I never have to touch my mouse to move
 around the desktop.
 
-###gnome and gtk###
+### gnome and gtk
 
 I still love some of the features from gnome. Especially the text hinting, which
 is why I still run `gnome-settings-daemon` in my [bspwm startup
@@ -50,7 +50,7 @@ under the "Appearance" tab that can be enabled. I use the
 [Numix](https://numixproject.org/) gtk theme which seems to behave fine with
 this setting.
 
-###Gnome Terminal###
+### Gnome Terminal
 
 I've tried using a few other lighter-weight terminals like xterm, but I still
 like the features of gnome-terminal more. I created a "bspwm" profile and set
@@ -65,7 +65,7 @@ In my
 I can then map my hotkeys for starting a new terminal to the command
 `gnome-terminal --window-with-profile=bspwm`.
 
-###vim###
+### vim
 
 Making vim dark is pretty easy. Just put this in the
 [`.vimrc`](https://github.com/thallada/dotfiles/blob/master/vim/.vimrc):
@@ -84,7 +84,7 @@ and adding this to the `.vimrc`:
 colorscheme distinguished
 ~~~
 
-###tmux/byobu###
+### tmux/byobu
 
 I like the abstraction that [byobu](http://byobu.co/) puts ontop of tmux, so
 that's what I use in the terminal. Colors can be configured by editing the
@@ -97,7 +97,7 @@ file. This is what I have in mine:
     BYOBU_HIGHLIGHT="\#303030"
     MONOCHROME=0
 
-###evince###
+### evince
 
 I tell my browser, firefox, to open pdfs in evince (aka. Document Viewer)
 because evince can darken pdfs.
@@ -105,21 +105,21 @@ because evince can darken pdfs.
 Select View > Invert Colors and then Edit > Save Current Settings as Default and
 now most pdfs will be displayed as white text on black background.
 
-###gimp###
+### gimp
 
 Gimp allows you to change themes easily. [Gimp GTK2 Photoshop CS6
 Theme](http://gnome-look.org/content/show.php?content=160952) is my favorite
 dark theme. Put that in `~/.gimp-2.8/themes/` (or whichever gimp version is
 installed) and, in Gimp, change the theme at Edit > Preferences > Theme.
 
-###Firefox###
+### Firefox
 
 I had to hack firefox a lot to get it to be universally dark since the web
 (unfortunately!) doesn't have a night mode switch. I'm using firefox instead of
 chrome because firefox has better customization for doing something this
 extreme.
 
-####Userstyles
+#### Userstyles
 
 Firefox has a really neat addon called
 [Stylish](https://addons.mozilla.org/en-us/firefox/addon/stylish/) that allows
@@ -171,7 +171,7 @@ Midnight Surfing Alternative:
 * [Youtube - Lights Out - A Dark Youtube
     Theme](https://userstyles.org/styles/92164/youtube-lights-out-a-dark-youtube-theme)
 
-####UI Themes
+#### UI Themes
 
 Most of my firefox UI is styled dark with the [FT
 DeepDark](https://addons.mozilla.org/en-US/firefox/addon/ft-deepdark/) theme.
@@ -179,7 +179,7 @@ DeepDark](https://addons.mozilla.org/en-US/firefox/addon/ft-deepdark/) theme.
 The firefox developer tools can be [themed dark in its
 settings](http://soledadpenades.com/2014/11/20/using-the-firefox-developer-edition-dark-theme-with-nightly/).
 
-####Addons
+#### Addons
 
 For reddit, I use the [RES](http://redditenhancementsuite.com/) addon which has
 a night mode option.
@@ -197,7 +197,7 @@ theme](https://github.com/vimpr/vimperator-colors). Also, in order to make all
 of the vimperator help pages dark, I had to add the protocol `liberator://` to
 the regex for Midnight Surfing Alternative (exact syntax for that above).
 
-###Redshift###
+### Redshift
 
 At night, it's also useful to filter out blue light to help with sleep.
 [Redshift](http://jonls.dk/redshift/) is a utility that does this automatically
@@ -205,7 +205,7 @@ while running in the background.
 
 ![Midnight in action with redshift](/assets/midnight_screenshot_redshift.png)
 
-###Invert it all!###
+### Invert it all!
 
 I noticed that with the dark colors and my monitor brightness turned low, it was
 hard to see the screen during the day because of glares. An easy solution to

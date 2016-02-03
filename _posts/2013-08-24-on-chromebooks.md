@@ -82,7 +82,7 @@ of tweaking. If anyone has read my past posts, they know that I am obsessed
 with configuring things. Here is what I came up with for everything I would
 ever need to do on my Chromebook:
 
-###Writing###
+### Writing
 
 I spent a lot of time downloading
 [various](https://chrome.google.com/webstore/detail/write-space/aimodnlfiikjjnmdchihablmkdeobhad)
@@ -115,7 +115,7 @@ hassle though, so I often just stick to the default style. It’s a sign that I
 am procrastinating if I’m trying to look for the “perfect template” to write in
 anyways.
 
-###Programming###
+### Programming
 
 I’ve gotten so used to [vim](http://www.vim.org/) in a Linux
 terminal that I don’t think I could ever use any other editor. There are a few
@@ -150,7 +150,7 @@ have all of the great chrome apps and extensions right at my fingertips.
 Especially when some apps can be opened up in small panels in the corner of the
 screen temporarily.
 
-###Panels###
+### Panels
 
 Chrome recently released a new concept for opening new windows
 called “Panels”, and once I discovered them I couldn’t get enough of them. The
@@ -187,7 +187,7 @@ Panel](https://chrome.google.com/webstore/detail/improved-google-tasks-pan/kgnap
 I’m still lacking Facebook Messenger and Google Voice panel view apps, so I
 might try my hand at creating one myself soon.
 
-###Web Browsing###
+### Web Browsing
 
 And, of course, being a laptop dedicated to chrome, it
 obviously has a great web browsing experience. 
