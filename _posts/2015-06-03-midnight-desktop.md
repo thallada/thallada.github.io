@@ -70,9 +70,9 @@ I can then map my hotkeys for starting a new terminal to the command
 Making vim dark is pretty easy. Just put this in the
 [`.vimrc`](https://github.com/thallada/dotfiles/blob/master/vim/.vimrc):
 
-```vim
+~~~ vim
 set background=dark
-```
+~~~
 
 I use the colorscheme
 [distinguished](https://github.com/Lokaltog/vim-distinguished) which is
@@ -80,9 +80,9 @@ installed by putting the `distinguished.vim` file under
 [`~/.vim/colors/`](https://github.com/thallada/dotfiles/tree/master/vim/.vim/colors)
 and adding this to the `.vimrc`:
 
-```vim
+~~~ vim
 colorscheme distinguished
-```
+~~~
 
 ###tmux/byobu###
 
@@ -141,9 +141,9 @@ edit](http://superuser.com/questions/463153/disable-stylish-on-certain-sites-in-
 Now, whenever I add a new dark theme to Stylish, I edit the regex to add the
 domains it covers to the parenthesized list that is delimited by pipes.
 
-```css
+~~~ css
 @-moz-document regexp("(https?|liberator|file)://(?!([^.]+\\.)?(maps\\.google\\.com|...other domains....)[/:]).*"){
-```
+~~~
 
 Here is the list of dark themes I'm currently using with Stylish in addition to
 Midnight Surfing Alternative:
@@ -221,7 +221,7 @@ The only problem was that this utility seemed to interfere with redshift, so I
 made [a script that would disable redshift before
 inverting](https://github.com/thallada/dotfiles/blob/master/invert/bin/invert).
 
-```bash
+~~~ bash
 #!/bin/bash
 inverted=$(xcalib -a -p | head -c 1)
 if [ "$inverted" == "W" ]
@@ -241,7 +241,7 @@ if [ "$inverted" == "W" ]
         xrandr-invert-colors
     fi
 fi
-```
+~~~
 
 
 And, now I have [a
@@ -254,13 +254,13 @@ can fix that.
 
 For firefox, I made a global userstyle to invert images and videos.
 
-```css
+~~~ css
 @-moz-document regexp("(https?|liberator|file)://(?!([^.]+\\.)?[/:]).*"){
   img, video, div.html5-video-container, div.player-api, span.emoji, i.emoji, span.emoticon, object[type="application/x-shockwave-flash"], embed[type="application/x-shockwave-flash"] {
       filter: invert(100%);
     }
 }
-```
+~~~
 
 Whenever I invert the colors, I enable that global theme on firefox.
 

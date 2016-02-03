@@ -53,7 +53,7 @@ This is how I got it setup (on any Ubuntu machine with sudo privileges):
 
 Save the following python file in `/usr/bin/` as `search-pane` (no extension):
 
-```python
+~~~ python
 #!/usr/bin/python
 from subprocess import call, check_output
 from threading import Thread
@@ -106,27 +106,27 @@ except Exception, errtxt:
     print errtxt
 
 call(['w3m', url]) # pass url off to w3m
-```
+~~~
 
 Make the directory and file for search history:
 
-```bash
+~~~ bash
 mkdir ~/.search-pane
 touch ~/.search-pane/history
-```
+~~~
 
 Allow anyone to execute the python script (make it into a program):
 
-```bash
+~~~ bash
 chmod a+x /usr/bin/search-pane
-```
+~~~
 
 To get quick access to the program from the command-line edit `~/.bashrc` to
 add:
 
-```bash
+~~~ bash
 alias s='search-pane'
-```
+~~~
 
 To add byobu key bindings edit `~/.byobu/keybindings.tmux` (or `/usr/share/byobu/keybindings/f-keys.tmux`):
 

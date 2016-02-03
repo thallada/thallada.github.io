@@ -43,9 +43,9 @@ This open source goodness can be found at
 intall it using your Linux distro's package manager. For Ubuntu, that would be
 typing the following into your terminal:
 
-```bash
+~~~ bash
 sudo apt-get install rtmpdump
-```
+~~~
 
 ###Redirect ALL the RTMP!###
 
@@ -55,9 +55,9 @@ RTMP streaming video you try to watch on your computer, so make sure you run
 the undo command in one of the later steps to return things to normal). Type
 the following into your terminal, there should be no output from the command:
 
-```bash
+~~~ bash
 sudo iptables -t nat -A OUTPUT -p tcp --dport 1935 -j REDIRECT
-```
+~~~
 
 ###Run rtmpsrv###
 
@@ -93,9 +93,9 @@ You must undo the iptables redirection command we
 performed earlier before you can do anything else, so run this in your
 terminal:
 
-```bash
+~~~ bash
 sudo iptables -t nat -D OUTPUT -p tcp --dport 1935 -j REDIRECT
-```
+~~~
 
 ###Finally, Download the Precious Video###
 
