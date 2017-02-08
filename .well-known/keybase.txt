@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/thallada
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://www.hallada.net
+  * I am thallada (https://keybase.io/thallada) on keybase.
+  * I have a public key ASDOaZj16vBUa4vjFa4dhC7map8qIX5MUSCqjgWeX1CfbQo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0120ce6998f5eaf0546b8be315ae1d842ee66a9f2a217e4c5120aa8e059e5f509f6d0a",
+            "host": "keybase.io",
+            "kid": "0120ce6998f5eaf0546b8be315ae1d842ee66a9f2a217e4c5120aa8e059e5f509f6d0a",
+            "uid": "bf2238122821bbc309d5bf1ed2421d19",
+            "username": "thallada"
+        },
+        "service": {
+            "hostname": "www.hallada.net",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.18"
+    },
+    "ctime": 1486587579,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1486587569,
+        "hash": "099473519e50871bbe05a57da09e5ba8fa575e8a51e259dd6ad6e8e4ead07fdb63895424659bc01aef600d5caa2ddaf32bd194fec6e08b54f623c0bf381df30c",
+        "seqno": 846152
+    },
+    "prev": "7ec1319be81dde8362b777b669904944eaebd592206c17953c628749b41cf992",
+    "seqno": 9,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgzmmY9erwVGuL4xWuHYQu5mqfKiF+TFEgqo4Fnl9Qn20Kp3BheWxvYWTFAvZ7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwY2U2OTk4ZjVlYWYwNTQ2YjhiZTMxNWFlMWQ4NDJlZTY2YTlmMmEyMTdlNGM1MTIwYWE4ZTA1OWU1ZjUwOWY2ZDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwY2U2OTk4ZjVlYWYwNTQ2YjhiZTMxNWFlMWQ4NDJlZTY2YTlmMmEyMTdlNGM1MTIwYWE4ZTA1OWU1ZjUwOWY2ZDBhIiwidWlkIjoiYmYyMjM4MTIyODIxYmJjMzA5ZDViZjFlZDI0MjFkMTkiLCJ1c2VybmFtZSI6InRoYWxsYWRhIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJ3d3cuaGFsbGFkYS5uZXQiLCJwcm90b2NvbCI6Imh0dHA6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjE4In0sImN0aW1lIjoxNDg2NTg3NTc5LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0ODY1ODc1NjksImhhc2giOiIwOTk0NzM1MTllNTA4NzFiYmUwNWE1N2RhMDllNWJhOGZhNTc1ZThhNTFlMjU5ZGQ2YWQ2ZThlNGVhZDA3ZmRiNjM4OTU0MjQ2NTliYzAxYWVmNjAwZDVjYWEyZGRhZjMyYmQxOTRmZWM2ZTA4YjU0ZjYyM2MwYmYzODFkZjMwYyIsInNlcW5vIjo4NDYxNTJ9LCJwcmV2IjoiN2VjMTMxOWJlODFkZGU4MzYyYjc3N2I2Njk5MDQ5NDRlYWViZDU5MjIwNmMxNzk1M2M2Mjg3NDliNDFjZjk5MiIsInNlcW5vIjo5LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQIiv6L2Js0MEXpgiHcIhP9B3MmBl+81QA0z32QYT5XWXsH/6rsylYYQCLWjrIXAILrOIoH5Jyd2GFfpU+O8A/w2oc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCDXYP2O217NRz/lX6Q6G54D0G6/EIfX2OJY/hduqsrYNqN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/thallada
+
+==================================================================
