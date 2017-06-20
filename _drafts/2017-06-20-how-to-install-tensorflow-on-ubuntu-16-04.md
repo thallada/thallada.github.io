@@ -101,8 +101,97 @@ to see if you get any output. Hopefully you will see your GPU listed.
 
 ## Install cuDNN v5.1
 
+[This AskUbuntu answer](https://askubuntu.com/a/767270) has good instructions.
+Here are the instructions specific to this set-up:
+
+1. Visit the [NVIDIA cuDNN page](https://developer.nvidia.com/cudnn) and click
+"Download".
+2. Join the program and fill out the survey.
+3. Agree to the terms of service.
+4. Click the link for "Download cuDNN v5.1 (Jan 20, 2017), for CUDA 8.0"
+5. Download the "cuDNN v5.1 Library for Linux" (3rd link from the top).
+6. Untar the downloaded file. E.g.:
+```bash
+cd ~/Downloads
+tar -xvf cudnn-8.0-linux-x64-v5.1.tgz
+```
+7. Install the cuDNN files to the CUDA folder:
+```bash
+cd cuda
+sudo cp -P include/* /usr/local/cuda-8.0/include/
+sudo cp -P lib64/* /usr/local/cuda-8.0/lib64/
+sudo chmod a+r /usr/local/cuda-8.0/lib64/libcudnn*
+
+```
+
 ## Install libcupti-dev
+
+This one is simple. Just run:
+
+```bash
+sudo apt-get install libcupti-dev
+```
 
 ## Create a Virtualenv
 
+I recommend using
+[virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/index.html)
+to create the tensorflow virtualenv, but the TensorFlow docs still have
+[instructions to create the virtualenv
+manually](https://www.tensorflow.org/install/install_linux#InstallingVirtualenv).
+
+1. [Install
+virtualenvwrapper]https://virtualenvwrapper.readthedocs.io/en/latest/install.html).
+Make sure to add [the required
+lines](https://virtualenvwrapper.readthedocs.io/en/latest/install.html#shell-startup-file)
+to your `~/.bashrc`.
+2. Create the virtualenv:
+```bash
+mkvirtualenv --python=python3 tensorflow
+```
+
 ## Install the TensorFlow with GPU support
+
+If you just run `pip install tensorflow` you will not get GPU support. To
+install the correct version you will have to install from a [particular
+url](https://www.tensorflow.org/install/install_linux#python_35). Here is the
+install command you will have to run to install TensorFlow 1.2 for Python 3.5
+with GPU support:
+
+```bash
+pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.2.0-cp35-cp35m-linux_x86_64.whl
+```
+
+If you need a different version of TensorFlow, you can edit the version number
+in the URL. Same with the Python version (change `cp35` to `cp36` to install for
+Python 3.6 instead, for example).
+
+## Test that the installation worked
+
+Save this script from [the TensorFlow
+tutorials](https://www.tensorflow.org/tutorials/using_gpu#logging_device_placement)
+to a file called `test_gpu.py`:
+
+```python
+# Creates a graph.
+with tf.device('/cpu:0'):
+  a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
+  b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
+c = tf.matmul(a, b)
+# Creates a session with log_device_placement set to True.
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+# Runs the op.
+print(sess.run(c))
+```
+
+And then run it:
+
+```bash
+python test_gpu.py
+```
+
+You should see your GPU card listed under "Device mapping:" and that each task
+in the compute graph is assigned to `gpu:0`.
+
+If you see "Device mapping: no known devices" then something went wrong and
+TensorFlow cannot access your GPU.
