@@ -141,7 +141,7 @@ to create the tensorflow virtualenv, but the TensorFlow docs still have
 manually](https://www.tensorflow.org/install/install_linux#InstallingVirtualenv).
 
 1. [Install
-virtualenvwrapper]https://virtualenvwrapper.readthedocs.io/en/latest/install.html).
+virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html).
 Make sure to add [the required
 lines](https://virtualenvwrapper.readthedocs.io/en/latest/install.html#shell-startup-file)
 to your `~/.bashrc`.
