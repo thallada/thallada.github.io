@@ -95,7 +95,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
    - The compile will take a while
    - My compile actually errored near the end with an error about `/usr/bin/ld:
      cannot find -lcudart`. I *think* that doesn't really matter because the
-     binary files where still output.
+     binary files were still output.
 8. Try running `~/NVIDIA_CUDA-8.0_Samples/bin/x86_64/linux/release/deviceQuery`
 to see if you get any output. Hopefully you will see your GPU listed.
 
