@@ -23,8 +23,8 @@ assuming:
 2. You have a 64 bit machine.
     - You can check this with `uname -m`. (should say `x86_64`)
 2. You have an NVIDIA GPU that has CUDA Compute Capability 3.0 or higher.
-[NVIDIA documentation] has a full table of cards and their Compute Capabilities.
-(I have a GeForce GTX 980 Ti)
+[NVIDIA documentation](https://developer.nvidia.com/cuda-gpus) has a full table
+of cards and their Compute Capabilities.  (I have a GeForce GTX 980 Ti)
     - You can check what card you have in Settings > Details under the label
       "Graphics"
     - You can also check by verifying there is any output when you run `lspci |
