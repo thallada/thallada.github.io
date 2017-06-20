@@ -121,7 +121,6 @@ cd cuda
 sudo cp -P include/* /usr/local/cuda-8.0/include/
 sudo cp -P lib64/* /usr/local/cuda-8.0/lib64/
 sudo chmod a+r /usr/local/cuda-8.0/lib64/libcudnn*
-
 ```
 
 ## Install libcupti-dev
