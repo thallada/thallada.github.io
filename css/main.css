@@ -89,10 +89,14 @@ blockquote p {
 .container {
   margin: 0 auto;
   max-width: 48rem;
-  width: 90%;
+  width: 100%;
 }
 
 @media (min-width: 40rem) {
+  .container {
+    width: 90%;
+  }
+
   .column {
     float: left;
     padding-left: 1rem;
