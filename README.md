@@ -6,7 +6,8 @@ with [Jekyll](http://jekyllrb.com/).
 
 See it at [http://www.hallada.net/](http://www.hallada.net/).
 
-##Magic##
+## Magic
+
 Most of the development work of this website went into creating what I like to
 call "magic", or the dynamic background to my homepage. A few seconds after
 loading the page, a branching web of colored tendrils will grow in a random
@@ -35,7 +36,8 @@ You can play around with these variables yourself on the [/magic
 page](http://www.hallada.net/magic) which has sliders for tweaking the
 animations in realtime.
 
-##Layout & CSS##
+## Layout & CSS
+
 I use a [grid system devised by Adam Kaplan](http://www.adamkaplan.me/grid/) and
 with some pieces from [Jorden Lev](http://jordanlev.github.io/grid/). It is
 set-up by scratch in my `main.css`. I decided on this so that I would not have
@@ -125,7 +127,8 @@ Another note: I use [box-sizing (as suggested by Paul
 Irish)](http://www.paulirish.com/2012/box-sizing-border-box-ftw/), which I think
 makes dealing with sizing elements a lot more sane.
 
-##Attributions##
+## Attributions
+
 [Book](http://thenounproject.com/term/book/23611/) designed by [Nherwin
 Ardoña](http://thenounproject.com/nherwinma) from the Noun Project.
 
