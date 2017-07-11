@@ -2,7 +2,7 @@ title: Tyler Hallada
 name: Tyler Hallada - Blog
 description: Musings on technology, literature, and interesting topics
 author: thallada
-url: http://www.hallada.net/
+url: http://www.hallada.net
 blog_url: http://www.hallada.net/blog
 assets: http://hallada.net/assets/
 logo: /img/profile_icon_128x128.jpg
@@ -19,6 +19,8 @@ defaults:
             path: ""
         values:
             image: /img/profile_icon_128x128.jpg
+            width: 128
+            height: 128
 markdown: kramdown
 kramdown:
     syntax_highlighter: rouge
