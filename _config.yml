@@ -1,7 +1,24 @@
+title: Tyler Hallada
 name: Tyler Hallada - Blog
 description: Musings on technology, literature, and interesting topics
-url: http://hallada.net/blog
+author: thallada
+url: http://www.hallada.net/
+blog_url: http://www.hallada.net/blog
 assets: http://hallada.net/assets/
+logo: /img/profile_icon_128x128.jpg
+social:
+    name: Tyler Hallada
+    links:
+        - https://twitter.com/tyhallada
+        - https://www.facebook.com/tyhallada
+        - https://www.linkedin.com/in/thallada/
+        - https://github.com/thallada
+defaults:
+    -
+        scope:
+            path: ""
+        values:
+            image: /img/profile_icon_128x128.jpg
 markdown: kramdown
 kramdown:
     syntax_highlighter: rouge
@@ -10,4 +27,5 @@ paginate_path: "blog/page:num"
 gems:
     - jekyll-redirect-from
     - jekyll-paginate
+    - jekyll-seo-tag
 include: [".well-known"]
