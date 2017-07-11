@@ -244,12 +244,7 @@ have no correspondence to the pronunciation. E.g.:
 
 > "meet" vs. "meat"
 
-The vowels are spelled differently, yet they rhyme.
-
-Fun fact: They used to be pronounced differently in Middle English during the
-invention of the printing press and standardized spelling. The [Great Vowel
-Shift](https://en.wikipedia.org/wiki/Great_Vowel_Shift) happened after, and is
-why they are now pronounced the same.
+The vowels are spelled differently, yet they rhyme [^1].
 
 So if the spelling of the words is useless in telling us if two words rhyme,
 what can we use instead?
@@ -261,7 +256,7 @@ The IPA is an alphabet that can represent all varieties of human pronunciation.
 * meet: /mit/
 * meat: /mit/
 
-Note: this is only the IPA transcription for only one **accent** of English.
+Note that this is only the IPA transcription for only one **accent** of English.
 Some English speakers may pronounce these words differently which could be
 represented by a different IPA transcription.
 
@@ -510,3 +505,11 @@ you'll be almost ready to run a TensorFlow port of word-rnn:
 
 I plan on playing around with NNs a lot more to see what kind of poetry-looking
 text I can generate from them.
+
+---
+
+[^1]:
+    Fun fact: They used to be pronounced differently in Middle English during
+    the invention of the printing press and standardized spelling. The [Great
+    Vowel Shift](https://en.wikipedia.org/wiki/Great_Vowel_Shift) happened
+    after, and is why they are now pronounced the same.
