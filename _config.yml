@@ -18,10 +18,7 @@ defaults:
         scope:
             path: ""
         values:
-            image:
-                url: /img/profile_icon_300x200.jpg
-                width: 300
-                height: 200
+            image: /img/profile_icon_300x200.jpg
 markdown: kramdown
 kramdown:
     syntax_highlighter: rouge
