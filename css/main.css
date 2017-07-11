@@ -43,7 +43,8 @@ p {
 }
 
 table {
-  margin: 1em 0 1em;
+  min-width: 85%;
+  margin: 1em auto 1em;
   border: 1px solid #cbcbcb;
 }
 
@@ -335,6 +336,11 @@ a.rss img {
 
 .post pre.terminal code {
   background-color: #333;
+}
+
+.post img {
+  display: block;
+  margin: 0 auto;
 }
 
 .post img.half-left {
