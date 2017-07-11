@@ -4,13 +4,13 @@ layout: post
 hidden: true
 ---
 
-In this post, I will demonstrate how to begin generating random text using a few
-lines of standard python and then progressively refining the output until it
-looks poem-like.
+In this post, I will demonstrate how to generate random text using a few lines
+of standard python and then progressively refine the output until it looks
+poem-like.
 
-If you would like to follow along with this post and actually run the code
-snippets mentioned here, you can clone [my NLP
-repository](https://github.com/thallada/nlp/) and run [the Jupyter
+If you would like to follow along with this post and run the code snippets
+yourself, you can clone [my NLP repository](https://github.com/thallada/nlp/)
+and run [the Jupyter
 notebook](https://github.com/thallada/nlp/blob/master/edX%20Lightning%20Talk.ipynb).
 
 You might not realize it, but you probably use an app everyday that can generate
@@ -19,7 +19,7 @@ random text that sounds like you: your phone keyboard.
 ![Suggested next words UI feature on the iOS
 keyboard](/img/blog/phone_keyboard.jpg)
 
-So how does it work?
+Just by tapping the next suggested word over and over, you can generate text. So how does it work?
 
 ## Corpus
 
@@ -329,8 +329,7 @@ does: 1
 
 To see this in action, try out a haiku generator I created that uses Buzzfeed
 article titles as a corpus. It does not incorporate rhyming, it just counts the
-syllables to make sure it's 5-7-5 [as it
-should](https://en.wikipedia.org/wiki/Haiku). You can view the full code
+syllables to make sure it's [5-7-5]((https://en.wikipedia.org/wiki/Haiku). You can view the full code
 [here](https://github.com/thallada/nlp/blob/master/generate_poem.py).
 
 ![Buzzfeed Haiku Generator](/img/blog/buzzfeed.jpg)
@@ -424,7 +423,6 @@ from syntax_aware_generate import generate
 generate('trump.txt', word_limit=10)
 ```
 ```
-
 (SBARQ
   (SQ
     (NP (PRP I))
@@ -476,14 +474,14 @@ have connections to other nodes in other layers of the network. These
 connections have weights which each node multiplies by the corresponding input
 and enters into a particular [activation
 function](https://en.wikipedia.org/wiki/Activation_function) to output a single
-number. The optimal weights of every connection for solving a particular problem
-with the network are learned by training the network using
+number. The optimal weights for solving a particular problem with the network
+are learned by training the network using
 [backpropagation](https://en.wikipedia.org/wiki/Backpropagation) to perform
 [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) on a
 particular [cost function](https://en.wikipedia.org/wiki/Loss_function) that
 tries to balance getting the correct answer while also
-[generalizing](https://en.wikipedia.org/wiki/Regularization_(mathematics)) the network
-enough to perform well on data the network hasn't seen before.
+[generalizing](https://en.wikipedia.org/wiki/Regularization_(mathematics)) the
+network enough to perform well on data the network hasn't seen before.
 
 [Long short-term memory
 (LSTM)](https://en.wikipedia.org/wiki/Long_short-term_memory) is a type of
