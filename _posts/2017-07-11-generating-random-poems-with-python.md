@@ -1,7 +1,6 @@
 ---
 title: Generating Random Poems with Python
 layout: post
-hidden: true
 ---
 
 In this post, I will demonstrate how to generate random text using a few lines
