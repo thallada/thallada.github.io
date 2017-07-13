@@ -1,6 +1,7 @@
 ---
 title: Generating Random Poems with Python
 layout: post
+image: /img/blog/buzzfeed.jpg
 ---
 
 In this post, I will demonstrate how to generate random text using a few lines
@@ -323,7 +324,7 @@ does: 1
 
 To see this in action, try out a haiku generator I created that uses Buzzfeed
 article titles as a corpus. It does not incorporate rhyming, it just counts the
-syllables to make sure it's [5-7-5]((https://en.wikipedia.org/wiki/Haiku). You can view the full code
+syllables to make sure it's [5-7-5](https://en.wikipedia.org/wiki/Haiku). You can view the full code
 [here](https://github.com/thallada/nlp/blob/master/generate_poem.py).
 
 ![Buzzfeed Haiku Generator](/img/blog/buzzfeed.jpg)
