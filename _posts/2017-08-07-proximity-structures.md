@@ -1,5 +1,5 @@
 ---
-title: Proximity Structures: Playing around with PixiJS
+title: "Proximity Structures: Playing around with PixiJS"
 layout: post
 image: /img/blog/proximity-structures.png
 ---
@@ -15,9 +15,9 @@ accelerated) primitive
 shapes](http://www.goodboydigital.com/pixi-webgl-primitives/) (lines and
 circles).
 
-Play with it here: [http://proximity.hallada.net](http://proximity.hallada.net)
+**Play with it here**: [http://proximity.hallada.net](http://proximity.hallada.net)
 
-Read/clone the code here: [https://github.com/thallada/proximity-structures](https://github.com/thallada/proximity-structures)
+**Read/clone the code here**: [https://github.com/thallada/proximity-structures](https://github.com/thallada/proximity-structures)
 
 ![The animation in action](/img/blog/proximity-structures.gif)
 
