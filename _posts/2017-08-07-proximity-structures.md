@@ -39,12 +39,11 @@ sharing.
 
 The majority of the animation you see is based on
 [tweening](https://en.wikipedia.org/wiki/Inbetweening). Each point has an origin
-and destination stored in memory. Every clock tick (orchestrated by the
-almighty
+and destination stored in memory. Every clock tick (orchestrated by the almighty
 [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)),
 the main loop calculates where each point should be in the path between its
-origin and destination based on how long it is until it completes its "cycle".
-There is a global `cycleDuration`, defaulted to 60. Every frame increments the cycle
+origin and destination based on how long until it completes its "cycle".  There
+is a global `cycleDuration`, defaulted to 60. Every frame increments the cycle
 counter by 1 until it reaches 60, at which point it folds over back to 0. Every
 point is assigned a number between 1 and 60. This is its start cycle. When the
 global cycle counter equals a point's start cycle number, the point has reached
