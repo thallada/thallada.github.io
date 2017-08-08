@@ -1,8 +1,8 @@
 ---
 title: Proximity Structures: Playing around with PixiJS
 layout: post
-image: /img/blog/proximity-structures.png
 hidden: true
+image: /img/blog/proximity-structures.png
 ---
 
 I've been messing around with a library called [PixiJS](http://www.pixijs.com/)
