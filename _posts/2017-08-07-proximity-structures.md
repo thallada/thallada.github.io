@@ -19,7 +19,8 @@ circles).
 
 **Read/clone the code here**: [https://github.com/thallada/proximity-structures](https://github.com/thallada/proximity-structures)
 
-![The animation in action](/img/blog/proximity-structures.gif)
+[![The animation in
+action](/img/blog/proximity-structures.gif)](http://proximity.hallada.net)
 
 The idea was inspired by
 [all](https://thumb9.shutterstock.com/display_pic_with_logo/3217643/418838422/stock-vector-abstract-technology-futuristic-network-418838422.jpg)
