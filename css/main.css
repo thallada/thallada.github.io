@@ -263,7 +263,7 @@ div.more-row {
 
 div.pagination {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 div.rss {
@@ -364,6 +364,31 @@ a.rss img {
     width: 49%;
     margin-bottom: 10px;
   }
+}
+
+/*****************************************************************************/
+/*
+/* Subscribe form
+/*
+/*****************************************************************************/
+
+.subscribe-form h3 {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.subscribe-form input {
+  margin: 10px;
+}
+
+.subscribe-form label {
+  margin-left: 10px;
+}
+
+.subscribe-form span.form-rss {
+  display: block;
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
 /*****************************************************************************/
