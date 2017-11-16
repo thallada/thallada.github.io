@@ -543,3 +543,18 @@ div.options-panel form {
 div.options-panel form label {
   display: block;
 }
+
+/*****************************************************************************/
+/*
+/* Comments (isso)
+/*
+/*****************************************************************************/
+
+.isso-postbox .textarea-wrapper {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div.isso-postbox div.form-wrapper section.auth-section p.input-wrapper {
+  margin-right: 10px;
+}
