@@ -4,7 +4,7 @@ thallada.github.io
 This is the latest version of my personal website. It is a static website built
 with [Jekyll](http://jekyllrb.com/).
 
-See it at [http://www.hallada.net/](http://www.hallada.net/).
+See it at [https://www.hallada.net/](https://www.hallada.net/).
 
 ## Magic
 
@@ -33,7 +33,7 @@ lightning flashing in the distant background, or like cracks splitting the
 screen, or like growing forest of sprouting trees.
 
 You can play around with these variables yourself on the [/magic
-page](http://www.hallada.net/magic) which has sliders for tweaking the
+page](https://www.hallada.net/magic) which has sliders for tweaking the
 animations in realtime.
 
 ## Layout & CSS

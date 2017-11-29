@@ -47,5 +47,5 @@ under 20% (on my machine), which was actually better than a few chrome
 extensions I was running anyways.
 
 Hopefully this new blog will also inspire me to write more posts as [my last
-post](http://thallada.github.io/2013/10/03/publishing-draft-docs-to-my-blog.html)
+post](/2013/10/03/publishing-draft-docs-to-my-blog.html)
 was almost a year ago now.
