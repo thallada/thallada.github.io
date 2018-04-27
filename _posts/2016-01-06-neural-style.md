@@ -7,6 +7,7 @@ I've been doing a lot of experimenting with [neural-style](https://github.com/jc
 the last month. I think I've discovered a few exciting applications of the
 technique that I haven't seen anyone else do yet. The true power of this
 algorithm really shines when you can see concrete examples.
+<!--excerpt-->
 
 Skip to the **Applications** part of this post to see the outputs from my
 experimentation if you are already familiar with DeepDream, Deep Style, and all

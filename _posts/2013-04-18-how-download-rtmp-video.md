@@ -12,6 +12,7 @@ streamed to the user's Flash player (in their browser) bit-by-bit, the full
 video file is never given to the user for them to keep. This is desirable to a
 lot of media companies because then they can force you to watch through ads to
 see their content and can charge you to download the full video.
+<!--excerpt-->
 
 However, [RTMPDump](http://rtmpdump.mplayerhq.hu/), an open-source tool
 designed to intercept RTMP streams, can download the full video. 

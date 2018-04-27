@@ -12,6 +12,7 @@ to create a homepage for the University's bookstore website, applying all of the
 usability principles we had learned over the semester. I ended up working on it
 when I wanted to procrastinate on assignments in my other classes, so I put
 quite a bit of effort into it.
+<!--excerpt-->
 
 See it here: [swe205.hallada.net](http://swe205.hallada.net)
 <div style="text-align: center">

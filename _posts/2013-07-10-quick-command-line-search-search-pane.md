@@ -17,6 +17,7 @@ customizability and compatibility with other programs. There's nothing more
 powerful than being able to whip up a small python or bash script that interacts
 with a couple of other programs to achieve something instantly that optimizes my
 work flow.
+<!--excerpt-->
 
 I use the [Awesome](http://awesome.naquadah.org/) window manager, which works
 great for tiling up terminal windows right up next to browser windows. However,

@@ -11,6 +11,7 @@ you can tell, there hasn't been any posts since my first ["Hello,
 World!"](/2012/12/03/hello-world) post. Sure, I've been working on projects, but I
 just haven't gotten to the point in any of those projects where I felt like I
 could blog in detail about it.
+<!--excerpt-->
 
 Then I watched this great talk that [Brian
 Jones](http://pyvideo.org/speaker/352/brian-k-jones) gave at

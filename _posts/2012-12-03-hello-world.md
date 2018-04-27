@@ -13,6 +13,7 @@ and was pretty familiar with it and I was beginning to get familiar with
 was what I was working with at [Valti](https://www.valti.com), and I was really
 liking making websites with it. It took what made Python awesome and applied
 that to web development.
+<!--excerpt-->
 
 I started from a blank Django project and built it up from there. Django's
 Object-Relational Mapper (ORM) can be boiled down to this: python classes

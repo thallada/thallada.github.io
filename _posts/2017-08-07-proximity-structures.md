@@ -14,6 +14,7 @@ this project, I mostly just used a small portion of it to create [WebGL (GPU
 accelerated) primitive
 shapes](http://www.goodboydigital.com/pixi-webgl-primitives/) (lines and
 circles).
+<!--excerpt-->
 
 **Play with it here**: [http://proximity.hallada.net](http://proximity.hallada.net)
 

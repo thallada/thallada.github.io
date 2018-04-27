@@ -9,6 +9,7 @@ development knowledge had exceeded what it was showing off. The main thing that
 annoyed me about my last website was that I was hosting what essentially was a
 static website on a web framework meant for dynamic websites. It was time for a
 update.
+<!--excerpt-->
 
 I decided to go with [Jekyll](http://jekyllrb.com/) which had everything I
 wanted:

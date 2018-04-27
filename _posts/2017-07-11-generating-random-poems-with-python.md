@@ -15,6 +15,7 @@ notebook](https://github.com/thallada/nlp/blob/master/edX%20Lightning%20Talk.ipy
 
 You might not realize it, but you probably use an app everyday that can generate
 random text that sounds like you: your phone keyboard.
+<!--excerpt-->
 
 ![Suggested next words UI feature on the iOS
 keyboard](/img/blog/phone_keyboard.jpg)

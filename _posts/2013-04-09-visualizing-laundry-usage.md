@@ -11,6 +11,7 @@ keeps track of the status of every machine and displays it on a
 [website](http://gmu.esuds.net/) so students can check how full the machines
 are before making the trek down to the laundry rooms. The system emails each
 student when their laundry is finished as well.
+<!--excerpt-->
 
 The only problem is that their user interface is pretty atrocious. I wrote up a
 [usability analysis](https://gist.github.com/thallada/5351114) of the site for

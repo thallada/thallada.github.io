@@ -7,6 +7,7 @@ I tend to use Linux (Ubuntu) on my desktop late at night in a dark room. To
 protect my eyes from the blinding light of my monitors I've tooled my desktop
 environment over the course of a few months to be as dark as possible. It has
 gotten complex enough that I thought it would be worth sharing now.
+<!--excerpt-->
 
 ### dotfiles
 

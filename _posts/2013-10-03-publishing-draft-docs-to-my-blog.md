@@ -13,6 +13,7 @@ features, one of its best being a version control system that allows you to
 send a draft to other people and accept or reject any changes they suggest. It
 also has a minamilistic iA Writer type interface, which focuses on the actual
 writing and nothing more.
+<!--excerpt-->
 
 One of my most favorite features that I have just discovered, though, is that
 it allows publishing any Draft document to any arbitrary

@@ -16,6 +16,7 @@ noticed that I still follow some small infrequent blogs through mailing lists
 that they offer. I'm really happy to see an email sign up on blogs I like,
 because it means I'll know when they post new content in the future. I check my
 email regularly unlike my RSS feeds.
+<!--excerpt-->
 
 Even though I'm sure my blog is still too uninteresting and unheard of to get
 many signups, I still wanted to know what it took to make a blog mailing list.

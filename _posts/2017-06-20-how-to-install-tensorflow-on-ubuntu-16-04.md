@@ -8,6 +8,7 @@ documentation](https://www.tensorflow.org/install/install_linux) rather lacking
 for installation instructions, especially in regards to getting GPU support.
 I'm going to write down my notes from wrangling with the installation here for
 future reference and hopefully this helps someone else too.
+<!--excerpt-->
 
 This will invariably go out-of-date at some point, so be mindful of the publish
 date of this post. Make sure to cross-reference other documentation that has

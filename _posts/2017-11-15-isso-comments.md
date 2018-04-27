@@ -9,6 +9,7 @@ my [old Django personal site](https://github.com/thallada/personalsite). While I
 enjoyed working on it at the time, it was a lot of work, especially to fight the
 spam. Now that my blog is hosted statically on Github's servers, I have no way
 to host something dynamic like comments.
+<!--excerpt-->
 
 [Disqus](http://disqus.com/) seems to be the popular solution to this problem
 for other people that host static blogs. The way it works is that you serve a

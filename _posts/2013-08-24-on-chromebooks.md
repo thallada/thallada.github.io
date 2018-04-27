@@ -9,6 +9,7 @@ just glorified browsers, right? What if I wanted to do anything outside of the
 browser?  Why would you spend [$1299 or $1449 for a
 computer](https://www.google.com/intl/en/chrome/devices/chromebooks.html#pixel)
 that can only run a browser?
+<!--excerpt-->
 
 While I know a lot of people who buy expensive MacBooks only to just use a web
 browser and iTunes, I’m a bit more of a power user and I need things like
