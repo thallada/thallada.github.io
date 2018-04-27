@@ -19,7 +19,7 @@ Jones](http://pyvideo.org/speaker/352/brian-k-jones) gave at
 pointed out to me:
 
 <div class="video-container"><iframe width="640" height="360"
-src="http://www.youtube.com/embed/BBfW3m3TK0w?feature=player_embedded"
+src="https://www.youtube.com/embed/BBfW3m3TK0w?feature=player_embedded"
 frameborder="0" allowfullscreen></iframe></div>
 
 One point that he makes that really resonates with me is how I should write
