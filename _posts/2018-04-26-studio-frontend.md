@@ -11,32 +11,31 @@ monolithic Django code-base 2.7 times the size of Django itself.
 <!--excerpt-->
 
 ```
-edx-platform (master)> tokei
 -------------------------------------------------------------------------------
  Language            Files        Lines         Code     Comments       Blanks
 -------------------------------------------------------------------------------
  ActionScript            1          118           74           23           21
- CoffeeScript           25         2296         1492          545          259
+ Autoconf               10          425          237          163           25
  CSS                    55        17106        14636         1104         1366
- HTML                  667        72608        36892        30307         5409
- JavaScript           1471       458791       349670        54805        54316
- JSON                   91        14421        14421            0            0
- JSX                    28         2104         1792           45          267
+ HTML                  668        72567        36865        30306         5396
+ JavaScript           1500       463147       352306        55882        54959
+ JSON                   91        14583        14583            0            0
+ JSX                    33         2595         2209           62          324
  LESS                    1          949          606          232          111
- Makefile                1           34           21            8            5
- Markdown               24          331          331            0            0
+ Makefile                1           65           49            8            8
+ Markdown               23          287          287            0            0
  Mustache                1            1            1            0            0
- Python               3246       553766       438165        29089        86512
- ReStructuredText       48         4258         4258            0            0
- Sass                  423        75509        55536         4548        15425
- Shell                  13          830          453          251          126
- SQL                     4         6158         4971         1171           16
- Plain Text            151         2982         2982            0            0
+ Python               3277       559255       442756        29254        87245
+ ReStructuredText       48         4252         4252            0            0
+ Sass                  424        75559        55569         4555        15435
+ Shell                  15          929          505          292          132
+ SQL                     4         6283         5081         1186           16
+ Plain Text            148         3521         3521            0            0
  TypeScript             20        88506        76800        11381          325
  XML                   364         5283         4757          231          295
- YAML                   36         1643         1370          122          151
+ YAML                   36         1630         1361          119          150
 -------------------------------------------------------------------------------
- Total                6670      1307694      1009228       133862       164604
+ Total                6720      1317061      1016455       134798       165808
 -------------------------------------------------------------------------------
 ```
 
@@ -48,8 +47,7 @@ world](https://openedx.atlassian.net/wiki/spaces/COMM/pages/162245773/Sites+powe
 it is starting to show its age. Most of it comes in the form of [Backbone.js
 apps](http://backbonejs.org/) loaded by [RequireJS](http://requirejs.org/) in
 Django [Mako templates](http://www.makotemplates.org/), with
-[jQuery](https://jquery.com/) peppered throughout (and — yes — some 2296 lines
-of [CoffeeScript](http://coffeescript.org/)).
+[jQuery](https://jquery.com/) peppered throughout.
 
 Many valiant efforts are underway to modernize the frontend of edx-platform
 including replacing RequireJS with Webpack, Backbone.js with
