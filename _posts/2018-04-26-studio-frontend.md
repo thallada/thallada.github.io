@@ -116,7 +116,7 @@ provide their own Bootstrap theme.
 
 
 ![Paragon's modal component displayed in
-Storybook](/img/blog/paragon-modal-storybook.png)
+Storybook](/img/blog/paragon-modal-storybook.jpg)
 
 Studio-frontend composes together Paragon components into higher-level
 components like [an accessibility
@@ -128,7 +128,7 @@ the base Paragon components. Other teams at edX using the same components were
 able to receive the same improvements with a single package update.
 
 ![Screenshot of the studio-frontend assets table inside of
-Studio](/img/blog/studio-frontend-assets-table.png)
+Studio](/img/blog/studio-frontend-assets-table.jpg)
 
 ## Integration with Studio
 
@@ -183,7 +183,7 @@ leaking outside of the studio-frontend embedded component `div` and affecting
 the rest of the Studio page around it.
 
 ![Diagram of a studio-frontend component embedded inside of
-Studio](/img/blog/studio-frontend-style-isolation.png)
+Studio](/img/blog/studio-frontend-style-isolation.jpg)
 
 We were able to prevent styles leaking outside of the studio-frontend component
 by scoping all CSS to only the `div` that wraps the component. Thanks to the
@@ -340,7 +340,7 @@ has to be configured on the webpack-dev-server to get around CORS violations.
 
 ![Diagram of studio-frontend's docker container communicating to Studio inside
 of the devstack_default docker 
-network](/img/blog/studio-frontend-docker-devstack.png)
+network](/img/blog/studio-frontend-docker-devstack.jpg)
 
 ## Deploying to Production
 
