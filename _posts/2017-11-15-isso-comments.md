@@ -35,6 +35,9 @@ I hit a few snags while installing it, however.
 
 ## Debian Package
 
+**I don't recommend using the Debian package anymore as it frequently goes out 
+of date and breaks on distribution upgrades. See bottom edit.**
+
 There is a very handy [Debian package](https://github.com/jgraichen/debian-isso)
 that someone has made for Isso. Since my server runs Ubuntu 16.04, and Ubuntu is
 based off of Debian, this is a package I can install with my normal ubuntu
@@ -127,6 +130,8 @@ so the `data-isso` attribute on the script tag needed to be
 `http://comments.hallada.net/blog/`.
 
 ## The Uncaught ReferenceError
+
+**You won't need to fix this if you install Isso from PIP! See bottom edit.**
 
 There's [an issue](https://github.com/posativ/isso/issues/318) with that Debian
 package that causes a JavaScript error in the console when trying to load the
@@ -239,3 +244,16 @@ site instead of `http`.
 
 Now you can securely leave a comment if you want to yell at me for writing the
 wrong thing!
+
+## EDIT 5/28/2019:
+
+I don't recommend using the Debian package anymore since it frequently goes out 
+of date and breaks when upgrading your Linux distribution.
+
+Instead, follow the [Isso docs](https://posativ.org/isso/docs/install/) by 
+creating a [virtualenv](https://virtualenv.pypa.io/en/latest/) and then run `pip 
+install isso` and `pip install gunicorn` from within the virtualenv.  Then, when 
+creating [a systemd 
+service](https://github.com/jgraichen/debian-isso/blob/master/debian/isso.service), 
+make sure to point to the gunicorn executable in that virtualenv (e.g.  
+`/opt/isso/bin/gunicorn`). It should load and run Isso from the same virtualenv.
