@@ -29,6 +29,10 @@ a:not(.card) img:not(.icon) {
   filter: none;
 }
 
+.card {
+  box-shadow: 0 1px 2px #fff;
+}
+
 .post pre {
   background-color: #fff;
 }

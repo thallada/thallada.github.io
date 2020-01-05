@@ -204,6 +204,7 @@ h1.title {
   font-size: 2rem;
   font-weight: 200;
   margin: 0;
+  margin-left: 0.5rem;
 }
 
 div.header {
@@ -570,7 +571,8 @@ div.theme-toggle {
   bottom: 0;
   width: 100%;
   text-align: center;
-  z-index: 100;
+  z-index: 2;
+  padding: 0.25rem 0.75rem;
 }
 
 @media (min-width: 40rem) {
