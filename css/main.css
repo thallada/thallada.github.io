@@ -558,3 +558,26 @@ div.options-panel form label {
 div.isso-postbox div.form-wrapper section.auth-section p.input-wrapper {
   margin-right: 10px;
 }
+
+/*****************************************************************************/
+/*
+/* Light & Dark Theme Toggle
+/*
+/*****************************************************************************/
+
+div.theme-toggle {
+  position: static;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+}
+
+@media (min-width: 40rem) {
+  div.theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: inherit;
+  }
+}

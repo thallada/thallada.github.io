@@ -1,0 +1,43 @@
+/* Dark theme */
+
+html {
+  background-color: #0F0908;
+}
+
+html {
+  filter: invert(90%);
+}
+
+img:not(.icon), video, div.video-container {
+  filter: invert(100%);
+}
+
+img:not(.icon) {
+  opacity: .75;
+  transition: opacity .5s ease-in-out;
+}
+
+img:hover:not(.icon) {
+  opacity: 1;
+}
+
+a:not(.card), a:hover:not(.card) {
+  filter: invert(100%);
+}
+
+a:not(.card) img:not(.icon) {
+  filter: none;
+}
+
+.post pre {
+  background-color: #fff;
+}
+
+.post code {
+  background-color: #fff;
+}
+
+.post a code {
+  background-color: #222;
+  border: 1px solid #333;
+}

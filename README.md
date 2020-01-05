@@ -6,6 +6,17 @@ with [Jekyll](http://jekyllrb.com/).
 
 See it at [https://www.hallada.net/](https://www.hallada.net/).
 
+## Build Locally
+
+To run a version of the site in development locally. Checkout this repo and 
+then:
+
+1. `cd thallada.github.io`
+2. [Install Jekyll](https://jekyllrb.com/docs/installation/)
+3. Run `bundle install`
+3. Run `bundle exec jekyll serve`
+4. Visit `http://localhost:4000` to view the website
+
 ## Magic
 
 Most of the development work of this website went into creating what I like to
@@ -126,6 +137,17 @@ way of fixing this without adding these second classes.
 Another note: I use [box-sizing (as suggested by Paul
 Irish)](http://www.paulirish.com/2012/box-sizing-border-box-ftw/), which I think
 makes dealing with sizing elements a lot more sane.
+
+### Light & Dark Themes
+
+In 2020, I created a dark theme for the website. The dark theme is used if it 
+detects that the user's OS is set to prefer a dark theme [using the 
+`prefers-color-scheme` `@media` 
+query](https://css-tricks.com/dark-modes-with-css/).
+
+To allow the user to select a theme separate from their OS's theme, I have also 
+included [a switch that can toggle between the two 
+themes](https://github.com/GoogleChromeLabs/dark-mode-toggle).
 
 ## Attributions
 

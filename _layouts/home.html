@@ -16,9 +16,11 @@
 
     <!-- syntax highlighting CSS -->
     <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax_dark.css" media="(prefers-color-scheme: dark)">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/main_dark.css" media="(prefers-color-scheme: dark)">
 
     <!-- RSS Feed -->
     <link href="/feed.xml" rel="alternate" type="application/atom+xml">
@@ -48,11 +50,21 @@
 
     </script>
     <!-- End Google Analytics -->
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
 
     {% seo %}
   </head>
   <body>
-  <canvas id="magic"></canvas>
+    <div class="theme-toggle">
+      <dark-mode-toggle
+        id="dark-mode-toggle-1"
+        appearance="switch"
+        dark="Dark"
+        light="Light"
+        permanent
+      ></dark-mode-toggle>
+    </div>
+    <canvas id="magic"></canvas>
     <div class="container">
       {{ content }}
     </div>

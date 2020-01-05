@@ -16,9 +16,11 @@
 
     <!-- syntax highlighting CSS -->
     <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax_dark.css" media="(prefers-color-scheme: dark)">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/main_dark.css" media="(prefers-color-scheme: dark)">
 
     <!-- Web Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700" rel="stylesheet" type="text/css">
@@ -41,6 +43,7 @@
 
     </script>
     <!-- End Google Analytics -->
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
 
     {% seo %}
   </head>
@@ -52,7 +55,7 @@
       </div>
       {{ content }}
       <div class="row clearfix rss">
-        <a class="rss" href="/feed.xml"><img src="/img/rss.png" alt="RSS"/></a>
+        <a class="rss" href="/feed.xml"><img src="/img/rss.png" alt="RSS" class="icon" /></a>
       </div>
       <div class="row clearfix footer">
         <div class="column full contact">
@@ -61,6 +64,15 @@
           </p>
         </div>
       </div>
+    </div>
+    <div class="theme-toggle">
+      <dark-mode-toggle
+        id="dark-mode-toggle-1"
+        appearance="switch"
+        dark="Dark"
+        light="Light"
+        permanent
+      ></dark-mode-toggle>
     </div>
   </body>
 </html>
