@@ -704,7 +704,7 @@ So how much faster is Rust than JavaScript in generating icosahedrons and
 hexspheres?
 
 Here's how long it took with generating shapes in JS with Three.js in Firefox 
-vs. in native Rust with a i5-2500K 3.3 GHz CPU.
+versus in native Rust with a i5-2500K 3.3 GHz CPU.
 
 | Shape  | JS generate time | Rust generate time |
 |---|---|---|
