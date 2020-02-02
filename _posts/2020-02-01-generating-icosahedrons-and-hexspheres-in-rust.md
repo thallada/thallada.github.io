@@ -1,6 +1,7 @@
 ---
 title: "Generating icosahedrons and hexspheres in Rust"
 layout: post
+image: /img/blog/hexsphere_colored_7.png
 ---
 
 I've been trying to learn [Rust](https://www.rust-lang.org/) lately, the hot new 
