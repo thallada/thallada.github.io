@@ -1,10 +1,6 @@
 /* Dark theme */
 
 html {
-  background-color: #0F0908;
-}
-
-html {
   filter: invert(90%);
 }
 
@@ -30,18 +26,14 @@ a:not(.card) img:not(.icon) {
 }
 
 .card {
-  box-shadow: 0 1px 2px #fff;
+  box-shadow: 0 1px 2px #fff !important;
 }
 
 .post pre {
-  background-color: #fff;
-}
-
-.post code {
-  background-color: #fff;
+  background-color: #fff !important;
 }
 
 .post a code {
-  background-color: #222;
-  border: 1px solid #333;
+  background-color: #222 !important;
+  border: 1px solid #333 !important;
 }
