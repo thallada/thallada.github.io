@@ -40,31 +40,33 @@
     {% seo %}
   </head>
   <body>
-    <div class="container">
-      <div class="row clearfix header">
-        <h1 class="title"><a href="/blog/">{{ site.name }}</a></h1>
-        <a class="extra" href="/">home</a>
-      </div>
-      {{ content }}
-      <div class="row clearfix rss">
-        <a class="rss" href="/feed.xml"><img src="/img/rss.png" alt="RSS" class="icon" /></a>
-      </div>
-      <div class="row clearfix footer">
-        <div class="column full contact">
-          <p class="contact-info">
-            <a href="mailto:tyler@hallada.net">tyler@hallada.net</a>
-          </p>
+    <div class="root">
+      <div class="container">
+        <div class="row clearfix header">
+          <h1 class="title"><a href="/blog/">{{ site.name }}</a></h1>
+          <a class="extra" href="/">home</a>
+        </div>
+        {{ content }}
+        <div class="row clearfix rss">
+          <a class="rss" href="/feed.xml"><img src="/img/rss.png" alt="RSS" class="icon" /></a>
+        </div>
+        <div class="row clearfix footer">
+          <div class="column full contact">
+            <p class="contact-info">
+              <a href="mailto:tyler@hallada.net">tyler@hallada.net</a>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="theme-toggle">
-      <dark-mode-toggle
-        id="dark-mode-toggle-1"
-        appearance="toggle"
-        light="Dark"
-        dark="Light"
-        permanent
-      ></dark-mode-toggle>
+      <div class="theme-toggle">
+        <dark-mode-toggle
+          id="dark-mode-toggle-1"
+          appearance="toggle"
+          light="Dark"
+          dark="Light"
+          permanent
+        ></dark-mode-toggle>
+      </div>
     </div>
   </body>
 </html>

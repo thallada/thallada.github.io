@@ -1,6 +1,6 @@
 /* Dark theme */
 
-html {
+body {
   filter: invert(90%);
 }
 

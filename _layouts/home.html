@@ -47,18 +47,20 @@
     {% seo %}
   </head>
   <body>
-    <canvas id="magic"></canvas>
-    <div class="container">
-      {{ content }}
-    </div>
-    <div class="theme-toggle">
-      <dark-mode-toggle
-        id="dark-mode-toggle-1"
-        appearance="toggle"
-        light="Dark"
-        dark="Light"
-        permanent
-      ></dark-mode-toggle>
+    <div class"root">
+      <canvas id="magic"></canvas>
+      <div class="container">
+        {{ content }}
+      </div>
+      <div class="theme-toggle">
+        <dark-mode-toggle
+          id="dark-mode-toggle-1"
+          appearance="toggle"
+          light="Dark"
+          dark="Light"
+          permanent
+        ></dark-mode-toggle>
+      </div>
     </div>
   </body>
 </html>
