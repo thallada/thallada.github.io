@@ -48,7 +48,18 @@ a {
 }
 
 p {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
+  font-size: 1rem;
+  line-height: 1.45rem;
+}
+
+img + em {
+  display: block;
+  margin-top: 4px;
+}
+
+li {
+  margin-bottom: 12px;
 }
 
 table {
@@ -375,6 +386,33 @@ a.rss img {
     width: 49%;
     margin-bottom: 10px;
   }
+}
+
+.post .row {
+  display: flex;
+  align: center;
+  justify-content: center;
+  gap: 8px 8px;
+  flex-wrap: wrap;
+}
+
+.post .row figure {
+  flex-basis: calc(50% - 8px);
+}
+
+@media (max-width: 40rem) {
+  .post .row {
+    flex-direction: column;
+  }
+}
+
+.post figure {
+  margin: 0;
+}
+
+.post figure figurecaption {
+  display: block;
+  margin-top: 4px;
 }
 
 /*****************************************************************************/
