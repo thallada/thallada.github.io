@@ -10,7 +10,7 @@ img:not(.icon), video, div.video-container {
 }
 
 img:not(.icon) {
-  opacity: .75;
+  opacity: .90;
   transition: opacity .5s ease-in-out;
 }
 
