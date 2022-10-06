@@ -51,7 +51,7 @@ terrain changes causing floating rocks and trees.
                     spot to put a lamp post and sign post so they are clipping. 
                     Screenshot by <a 
                     href="https://www.nexusmods.com/users/63732336">
-                    AndreySG</a>
+                    AndreySG</a>.
                 </em>
             </figurecaption>
         </figure>
@@ -61,10 +61,9 @@ terrain changes causing floating rocks and trees.
             src="/img/blog/modmapper-clipping-example1.jpg" />
             <figurecaption>
                 <em>
-                    Example of a conflict between two mods that both chose the same 
-                    spot to put a building and rock so they are clipping. Screenshot 
-                    by <a href="https://www.reddit.com/user/LewdManoSaurus">
-                    LewdManoSaurus</a>
+                    Conflict between a building and rock. Screenshot by <a 
+                    href="https://www.reddit.com/user/LewdManoSaurus">
+                    LewdManoSaurus</a>.
                 </em>
             </figurecaption>
         </figure>
@@ -74,11 +73,9 @@ terrain changes causing floating rocks and trees.
             src="/img/blog/modmapper-clipping-example3.jpg" />
             <figurecaption>
                 <em>
-                    Example of a conflict between two mods that both chose the same 
-                    spot to put a building and tree so they are clipping. Screenshot 
-                    by <a 
+                    Conflict between a building and a tree. Screenshot by <a 
                     href="https://www.nexusmods.com/skyrimspecialedition/users/51448566">
-                    Janquel</a>
+                    Janquel</a>.
                 </em>
             </figurecaption>
         </figure>
@@ -88,11 +85,9 @@ terrain changes causing floating rocks and trees.
             src="/img/blog/modmapper-clipping-example4.jpg" />
             <figurecaption>
                 <em>
-                    Example of a conflict between two mods that both chose the 
-                    same spot to put a woodcutting mill so they are clipping. 
-                    Screenshot by <a 
+                    Conflict between two woodcutting mills. Screenshot by <a 
                     href="https://www.nexusmods.com/skyrimspecialedition/users/51448566">
-                    Janquel</a>
+                    Janquel</a>.
                 </em>
             </figurecaption>
         </figure>
