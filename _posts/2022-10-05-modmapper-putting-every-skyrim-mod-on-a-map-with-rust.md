@@ -2,7 +2,6 @@
 title: "Modmapper: Putting every Skyrim mod on a map with Rust"
 layout: post
 image: /img/blog/modmapper.jpg
-hidden: true
 ---
 
 [Modmapper](https://modmapper.com) is a website that I made that puts every mod 
