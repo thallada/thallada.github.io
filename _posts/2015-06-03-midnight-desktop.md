@@ -58,8 +58,8 @@ like the features of gnome-terminal more. I created a "bspwm" profile and set
 the background to be transparent with opacity at about half-way on the slider.
 My background, set in the [bspwm startup
 script](https://github.com/thallada/dotfiles/blob/master/bspwm/bin/bspwm-session)
-is a subtle [dark tiling pattern](http://subtlepatterns.com/dark-mosaic/) so
-this effectively makes the background of the terminal dark.
+is a subtle [dark tiling pattern](https://www.toptal.com/designers/subtlepatterns/mosaic/)
+so this effectively makes the background of the terminal dark.
 
 In my
 [sxhkdrc](https://github.com/thallada/dotfiles/blob/master/sxhkd/.config/sxhkd/sxhkdrc)
