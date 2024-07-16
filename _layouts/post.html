@@ -1,20 +1,21 @@
 ---
 layout: default
 ---
+
 <div class="card">
   <div class="row clearfix">
     <div class="column full post-header">
       <h2 class="post-title"><a href="{{ post.url }}">{{ page.title }}</a></h2>
-      <span class="timestamp">{{ page.date | date_to_string }}</span> 
+      <span class="timestamp">{{ page.date | date_to_string }}</span>
     </div>
   </div>
   <div class="row clearfix">
-    <div class="column full post">
-      {{ content }}
-    </div>
+    <div class="column full post">{{ content }}</div>
   </div>
 </div>
 
-{% include comments.html %}
+<!-- disabling until I fix the comments system -->
+<!-- {% include comments.html %} -->
 
-{% include mail-form.html %}
+<!-- disabling until I fix the mail form -->
+<!-- {% include mail-form.html %} -->
