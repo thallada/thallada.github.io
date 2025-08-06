@@ -7,26 +7,26 @@ blog_url: https://www.hallada.net/blog
 assets: https://hallada.net/assets/
 logo: /img/profile_icon_128x128.jpg
 social:
-    name: Tyler Hallada
-    links:
-        - https://twitter.com/tyhallada
-        - https://www.facebook.com/tyhallada
-        - https://www.linkedin.com/in/thallada/
-        - https://github.com/thallada
+  name: Tyler Hallada
+  links:
+    - https://twitter.com/tyhallada
+    - https://www.facebook.com/tyhallada
+    - https://www.linkedin.com/in/thallada/
+    - https://github.com/thallada
 defaults:
-    -
-        scope:
-            path: ""
-        values:
-            image: /img/profile_icon_300x200.jpg
+  - scope:
+      path: ""
+    values:
+      image: /img/profile_icon_300x200.jpg
 markdown: kramdown
 kramdown:
-    syntax_highlighter: rouge
+  syntax_highlighter: rouge
 excerpt_separator: "<!--excerpt-->"
 paginate: 10
 paginate_path: "blog/page:num"
 gems:
-    - jekyll-redirect-from
-    - jekyll-paginate
-    - jekyll-seo-tag
+  - jekyll-redirect-from
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
 include: [".well-known"]
