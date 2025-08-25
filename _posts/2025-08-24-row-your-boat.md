@@ -174,8 +174,8 @@ This method employs multiple techniques like reducing the domain of the angles t
 With the ability to calculate sine and cosine, I could now calculate the next X and Y position of the boat given the current speed and the current angle of the boat:
 
 ```
-set BoatX to BoatX + (sin _ FrameBoatVelocity)
-set BoatY to BoatY + (cos _ FrameBoatVelocity)
+set BoatX to BoatX + (sin * FrameBoatVelocity)
+set BoatY to BoatY + (cos * FrameBoatVelocity)
 ...
 BoatRef.SetPos x, BoatX
 BoatRef.SetPos y, BoatY
@@ -386,19 +386,19 @@ Combining three random waves instead of a single makes the rocking more complex 
 The boat pitches by combining the primary and secondary waves:
 
 ```
-set TargetRockPitchOffset to RockAmplitudePitch _ (rockSin _ 0.8 + rockSin2 \* 0.2)
+set TargetRockPitchOffset to RockAmplitudePitch * (rockSin * 0.8 + rockSin2 * 0.2)
 ```
 
 And rolls side-to-side by using a cosine function to create a 90-degree phase offset off the secondary and tertiary waves:
 
 ```
-set TargetRockRollOffset to RockAmplitudeRoll _ (rockCos3 _ 0.7 + rockSin2 \* 0.3)
+set TargetRockRollOffset to RockAmplitudeRoll * (rockCos3 * 0.7 + rockSin2 * 0.3)
 ```
 
 And bobs up and down slightly by combining the primary and secondary waves:
 
 ```
-set TargetRockZOffset to RockAmplitudeZ _ (rockSin _ 0.7 + rockSin2 \* 0.3 + RockRandomPhase)
+set TargetRockZOffset to RockAmplitudeZ * (rockSin * 0.7 + rockSin2 * 0.3 + RockRandomPhase)
 ```
 
 This all combines to create a fairly convincing boat rocking motion in the water:
@@ -414,9 +414,9 @@ To increase the realism, the rocking motion gets amplified by how fast the boat 
 
 ```
 ; Increase rocking amplitude based on speed
-set TargetRockZOffset to TargetRockZOffset _ (1 + (AbsoluteBoatVelocity / BoatMaxVelocity) _ RockSpeedFactor)
-set TargetRockPitchOffset to TargetRockPitchOffset _ (1 + (AbsoluteBoatVelocity / BoatMaxVelocity) _ RockSpeedFactor _ 1.5)
-set TargetRockRollOffset to TargetRockRollOffset _ (1 + (AbsoluteBoatVelocity / BoatMaxVelocity) _ RockSpeedFactor _ 0.7)
+set TargetRockZOffset to TargetRockZOffset * (1 + (AbsoluteBoatVelocity / BoatMaxVelocity) * RockSpeedFactor)
+set TargetRockPitchOffset to TargetRockPitchOffset * (1 + (AbsoluteBoatVelocity / BoatMaxVelocity) * RockSpeedFactor * 1.5)
+set TargetRockRollOffset to TargetRockRollOffset * (1 + (AbsoluteBoatVelocity / BoatMaxVelocity) * RockSpeedFactor * 0.7)
 ```
 
 And the rocking motion also gets amplified by bad weather by querying the wind speed with [`GetWindSpeed`](https://cs.uesp.net/wiki/GetWindSpeed) and adjusting the motion accordingly:
@@ -455,9 +455,9 @@ set PlayerRelativeY to PlayerY - BoatY
 ; Forward vector (bow direction): sin(BoatAngle), cos(BoatAngle)
 ; Right vector (starboard direction): cos(BoatAngle), -sin(BoatAngle)
 ; PlayerLocalY: positive = toward bow, negative = toward stern
-set PlayerLocalY to PlayerRelativeX _ sin + PlayerRelativeY _ cos
-; PlayerLocalX: positive = toward starboard, negative = toward port
-set PlayerLocalX to PlayerRelativeX _ cos - PlayerRelativeY _ sin
+set PlayerLocalY to PlayerRelativeX * sin + PlayerRelativeY * cos
+; PlayerLocalX: positive = toward starboard, negative = toward port  
+set PlayerLocalX to PlayerRelativeX * cos - PlayerRelativeY * sin
 set PlayerLocalZ to PlayerZ - BoatZWithRock
 ```
 
@@ -465,11 +465,11 @@ Then I calculate a weight effect to apply to the pitch and roll that diminishes 
 
 ```
 ; Calculate distance from boat center for falloff effect
-set PlayerDistanceFromCenter to PlayerRelativeX _ PlayerRelativeX + PlayerRelativeY _ PlayerRelativeY
+set PlayerDistanceFromCenter to PlayerRelativeX * PlayerRelativeX + PlayerRelativeY * PlayerRelativeY
 ; Newton's method square root approximation (2 iterations)
 set PlayerDistanceFromCenter to PlayerWeightMaxDistanceForward ; Initial guess
-set PlayerDistanceFromCenter to (PlayerDistanceFromCenter + ((PlayerRelativeX _ PlayerRelativeX + PlayerRelativeY _ PlayerRelativeY) / PlayerDistanceFromCenter)) / 2
-set PlayerDistanceFromCenter to (PlayerDistanceFromCenter + ((PlayerRelativeX _ PlayerRelativeX + PlayerRelativeY _ PlayerRelativeY) / PlayerDistanceFromCenter)) / 2
+set PlayerDistanceFromCenter to (PlayerDistanceFromCenter + ((PlayerRelativeX * PlayerRelativeX + PlayerRelativeY * PlayerRelativeY) / PlayerDistanceFromCenter)) / 2
+set PlayerDistanceFromCenter to (PlayerDistanceFromCenter + ((PlayerRelativeX * PlayerRelativeX + PlayerRelativeY * PlayerRelativeY) / PlayerDistanceFromCenter)) / 2
 ```
 
 Using the distance from center I can then calculate an influence factor to apply to the pitch and roll on top of the randomized environmental pitch and roll (by adding these offsets):
@@ -525,19 +525,19 @@ Eventually I realized that the order that yaw, roll, and pitch were applied matt
 
 ```
 ; yaw
-set RYB.TempX to RYB.SeatSideOffset _ RYB.cos + RYB.SeatForwardOffset _ RYB.sin
-set RYB.TempY to RYB.SeatForwardOffset _ RYB.cos - RYB.SeatSideOffset _ RYB.sin
+set RYB.TempX to RYB.SeatSideOffset * RYB.cos + RYB.SeatForwardOffset * RYB.sin
+set RYB.TempY to RYB.SeatForwardOffset * RYB.cos - RYB.SeatSideOffset * RYB.sin
 set RYB.TempZ to RYB.SeatZOffset
 ; roll
 set RYB.OrigX to RYB.TempX
 set RYB.OrigZ to RYB.TempZ
-set RYB.TempX to RYB.OrigX _ RYB.CosRoll - RYB.OrigZ _ RYB.SinRoll
-set RYB.TempZ to RYB.OrigX _ RYB.SinRoll + RYB.OrigZ _ RYB.CosRoll
+set RYB.TempX to RYB.OrigX * RYB.CosRoll - RYB.OrigZ * RYB.SinRoll
+set RYB.TempZ to RYB.OrigX * RYB.SinRoll + RYB.OrigZ * RYB.CosRoll
 ; pitch
 set RYB.OrigY to RYB.TempY
 set RYB.OrigZ to RYB.TempZ
-set RYB.TempY to RYB.OrigY _ RYB.CosPitch + RYB.OrigZ _ RYB.SinPitch
-set RYB.TempZ to -RYB.OrigY _ RYB.SinPitch + RYB.OrigZ _ RYB.CosPitch
+set RYB.TempY to RYB.OrigY * RYB.CosPitch + RYB.OrigZ * RYB.SinPitch
+set RYB.TempZ to -RYB.OrigY * RYB.SinPitch + RYB.OrigZ * RYB.CosPitch
 ; to world coords
 set RYB.SeatX to RYB.BoatX + RYB.TempX
 set RYB.SeatY to RYB.BoatY + RYB.TempY
