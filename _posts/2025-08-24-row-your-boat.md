@@ -271,7 +271,7 @@ I initially went with the [Darkness](https://en.uesp.net/wiki/Oblivion:Darkness)
 
 ### Realistic Movement
 
-When the Row spell is cast by the player while they are on the boat, it doesn’t immediately shoot the boat forward at it’s maximum speed. Instead, the Row spell cast starts a timer where, for a short time period, it adds a small amount of “force” to the boat’s current velocity every game frame. This is to simulate the effect of oars pushing through the water. After constantly rowing for a while, velocity will accumulate until the boat reaches its maximum velocity.
+When the Row spell is cast by the player while they are on the boat, it doesn’t immediately shoot the boat forward at its maximum speed. Instead, the Row spell cast starts a timer where, for a short time period, it adds a small amount of “force” to the boat’s current velocity every game frame. This is to simulate the effect of oars pushing through the water. After constantly rowing for a while, velocity will accumulate until the boat reaches its maximum velocity.
 
 Since this is an effect that applies every frame, I needed to account for players having different frame rates or variations in the frame rate. It wouldn’t make any sense if the boat was faster in lower graphics settings, or slower if the player entered an area with a lower frame rate. Infamously, Oblivion has this issue with its Havok physics engine. It’s tied to the game’s frame rate which often [causes bugs like objects erratically flying off shelves when the player enters an interior under high frame-rates](https://www.reddit.com/r/oblivion/comments/512ut0/is_fps_tied_to_physics_in_this_game/).
 
@@ -343,7 +343,7 @@ I will certainly be using LLMs to create visualizations of tricky simulations in
 
 The dragging code tries to simulate the player dragging the boat as if they were pulling a rope attached to the center of the boat. This allows the player to walk freely around the boat without it moving as long as they don’t make the rope taut by walking more than the rope’s length away from the center of the boat (the white circle in the visualization). Once they do, it will pull the boat with a force relative to how far away the player moved. The boat itself has friction with the ground which moderates this effect, since I wanted the dragging effect to feel slow and less practical than rowing it on water.
 
-The boat also turns to face the bow towards the player. This makes it appear like the player is dragging the boat from it’s bow. The turning effect works very similarly to how the turning works on water with gradual ramp up and decay when the angle of difference enters the deadzone.
+The boat also turns to face the bow towards the player. This makes it appear like the player is dragging the boat from its bow. The turning effect works very similarly to how the turning works on water with gradual ramp up and decay when the angle of difference enters the deadzone.
 
 One thing the visualization does not show is how the boat behaves when dragged up or down hills (since it is only a 2D visualization). I wanted the pitch of the boat to change so that when the player drags it up a hill it pitches up to follow the slope of the terrain, and when they drag it downhill it would pitch down. Otherwise, the boat stuck out awkwardly horizontally from the side of hills while you were dragging it. It just looked unrealistic.
 
@@ -456,7 +456,7 @@ set PlayerRelativeY to PlayerY - BoatY
 ; Right vector (starboard direction): cos(BoatAngle), -sin(BoatAngle)
 ; PlayerLocalY: positive = toward bow, negative = toward stern
 set PlayerLocalY to PlayerRelativeX * sin + PlayerRelativeY * cos
-; PlayerLocalX: positive = toward starboard, negative = toward port  
+; PlayerLocalX: positive = toward starboard, negative = toward port
 set PlayerLocalX to PlayerRelativeX * cos - PlayerRelativeY * sin
 set PlayerLocalZ to PlayerZ - BoatZWithRock
 ```
@@ -568,7 +568,7 @@ I never truly found out the root-cause of the duplicating boats. The process I f
 
 So, I suspect it has something to do with Unreal Engine getting Construction Set placed references mixed up with references that have been moved by scripts outside their originally placed cell, and somehow duplicating the reference in the process.
 
-I haven’t gotten any reports from users that the boat duplication bug is still happening after I released a new version with the UE4SS script. I still get the occasional user reporting crashes that happen, but it’s hard to prove what mod in their load order is really causing the crash, and many users report my mod because they see the log messages my script writes in their UE4SS logs. Personally, I didn’t experience any crashes with a bare-bones load order with just my mod and it’s dependencies installed.
+I haven’t gotten any reports from users that the boat duplication bug is still happening after I released a new version with the UE4SS script. I still get the occasional user reporting crashes that happen, but it’s hard to prove what mod in their load order is really causing the crash, and many users report my mod because they see the log messages my script writes in their UE4SS logs. Personally, I didn’t experience any crashes with a bare-bones load order with just my mod and its dependencies installed.
 
 ### Future Work
 
