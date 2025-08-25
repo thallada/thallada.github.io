@@ -2,7 +2,6 @@
 title: "Row Your Boat: How I made a boat physics simulation inside Oblivion Remastered"
 layout: post
 image: /img/blog/rowyourboat.jpg
-hidden: true
 ---
 
 If creativity is borne out of constraints, creating mods for games must be one of the most creative things you can do as a programmer. It’s just so fun to hack a game engine to do something it was never supposed to do.
