@@ -15,7 +15,7 @@ This blog post goes into depth describing a mod I made for the game [Oblivion Re
 
 All of the scripts included in the mod are on my [GitHub here](https://github.com/thallada/RowYourBoat).
 
-## The Game Release
+### The Game Release
 
 The Elder Scrolls series from [Bethesda Softworks](https://bethesda.net/) is probably the most modded series of games ever. One of [my previous projects involved indexing and mapping hundreds of thousands of mods for Skyrim](https://www.hallada.net/2022/10/05/modmapper-putting-every-skyrim-mod-on-a-map-with-rust.html) (the latest game in the series), so I know. A major reason why modding this series is so popular is because Bethesda releases the editor tools they used to create the games to the public for free. These tools lower the barrier of entry to modding and encourages complete beginners to try their hand at creating mods. I credit modding [Elder Scrolls IV: Oblivion](https://elderscrolls.bethesda.net/en/oblivion) when I was a teenager with originally getting me interested in programming. The tool they released for the classic 2006 Oblivion is called the [Construction Set](https://en.uesp.net/wiki/Oblivion_Mod:Construction_Set). It gave modders the ability to create new items, quests, creatures, and modify pretty much anything else in the game engine Oblivion was built off of: [Gamebryo](http://www.gamebryo.com/).
 
@@ -27,13 +27,13 @@ The introduction of Unreal Engine was both a blessing and a curse for modding. O
 
 Luckily, a lot of the modding tools that were used for the original game worked with the remaster after some tweaks. [The community discovered that you could use the original Construction Set](https://discord.com/channels/1364356029932109976/1370869854193582212) (along with [the fantastic Construction Set Extender](https://www.nexusmods.com/oblivion/mods/36370)) to create plugins that would load in Oblivion Remastered. New beta versions of [xEdit](https://github.com/TES5Edit/TES5Edit) were released to support Oblivion Remastered (a GUI program for viewing and editing data inside mod plugins). A new version of [Oblivion Script Extender for Oblivion Remastered (OBSE64)](https://github.com/ianpatt/obse64) was released (adds new scripting functions through reverse-engineering of the game engine). It was starting to look like it would be possible to create some truly complex mods in the remaster.
 
-## The Idea
+### The Idea
 
 ![Screenshot in Oblivion Remastered from the Imperial City Waterfront overlooking the Lake Rumare](/img/blog/waterfront-rumare.jpg)
 
 In my own play-through of the game, I had just purchased the [Imperial City Waterfront shack](https://en.uesp.net/wiki/Oblivion:Shack_for_Sale) as my character’s first home, and I was wandering around the waterfront right outside the shack and looking out over at the far shoreline of the [Lake Rumare](https://en.uesp.net/wiki/Oblivion:Lake_Rumare). I suddenly had the thought: wouldn’t it be great to row a boat over there? So much of [Cyrodiil](https://en.uesp.net/wiki/Oblivion:Cyrodiil), the province Oblivion is set in, is carved by rivers and lakes, and it’s bordered on two ends by ocean. All of this space on the map is only accessible through swimming, which is the slowest and most cumbersome way to travel in the game (it’s also slow on a horse, which is the only “vehicle” in the game). Why _shouldn’t_ the player be able to take any one of those boats that litter the shorelines and row it anywhere?
 
-## Researching the Original Boat Mod
+### Researching the Original Boat Mod
 
 In fact, I did remember downloading some sort of controllable boat mod for Oblivion way back in the day. A quick [search on old Oblivion Nexus Mods reveals a bunch of mods that allow the player to pilot boats](https://www.nexusmods.com/games/oblivion/mods?keyword=boat&sort=endorsements), so I knew it should be possible in theory. Out of all of these, [Jason1s Pilotable Pirate Ship](https://www.nexusmods.com/oblivion/mods/3575) stood out to me. Impressively, the mod was published just a month after the initial release of the game in 2006. A lot of the other boat mods created later (reasonably) depended on and used [OBSE](https://obse.silverlock.org/) functions for their functionality, but this mod used only the game’s built-in scripting language. OBSE64 for Oblivion Remastered isn’t yet far enough along yet to provide the same fancy functions those other mods used. So, I decided to look into the source files of Jason1’s mod to find out how he made a controllable boat with the same original limited scripting language I had to deal with.
 
@@ -126,7 +126,7 @@ This system isn’t perfect. The mod’s readme mentions that “Collision detec
 
 My initial plan was to simply port Jason1’s mod to Oblivion Remastered. However, I quickly realized that too many things were changed in the game engine to make Jason1’s solution feasible in the remaster.
 
-## Getting Meshes to Appear in the Game
+### Getting Meshes to Appear in the Game
 
 One of the biggest hurdles of the modding the remaster was just getting items you added in a plugin to actually appear in the game. The [ESP files](https://en.uesp.net/wiki/Oblivion_Mod:Plugins) created by the Construction Set allowed you to define new objects and their position in the game, but this was only in the old Gamebryo side of the game engine. There was a disconnect between that and the Unreal side of the game engine that prevented these objects from showing up in-game.
 
@@ -134,7 +134,7 @@ Luckily, [Godschildgaming](https://next.nexusmods.com/profile/Godschildgaming?ga
 
 Any Oblivion Remastered mod that wanted to add new objects into the world would just need to add a dependency on UE4SS TesSyncMapInjector and create an INI or JSON config file that told TesSyncMapInjector what Unreal Engine model asset to use for each ESP object (referenced using their [Formids](https://en.uesp.net/wiki/Oblivion_Mod:Formid)).
 
-## Moving the Boat
+### Moving the Boat
 
 In Jason1’s Pilotable Pirate Ship mod, the player starts moving the boat by clicking on hull or wheel of the ship (“activating”) which opens a [MessageBox](https://cs.uesp.net/wiki/MessageBox_Tutorial) with options for moving forward, backward, or stopping (“drop anchor”). The first thing I did was try to replicate this with a rowboat model in the game.
 
@@ -146,7 +146,7 @@ I found out later that I was lucky in having attempted to try to move an activat
 
 I was expecting to run into the problem Jason1 ran into with players clipping through the boat mesh and falling into the water while the boat was moving, but it turns out Unreal Engine actually handles this better! It had no problems with moving the player and keeping them on the deck while the boat was moving.
 
-## Turning the Boat
+### Turning the Boat
 
 The other critical part of moving the boat is turning it so the player can dictate _where_ the boat is moving. Jason1’s mod achieved this by locking the boat angle to the player’s view angle. So for example, when the player turned to look right, the boat would follow and turn right.
 
@@ -194,7 +194,7 @@ The turn rate also decays. So if the player stops turning the boat by looking di
     </video>
 </p>
 
-## Detecting Collision
+### Detecting Collision
 
 Since the meshes are handled by Unreal Engine in Oblivion Remastered, I didn’t think the same method Jason1 used in his original mod would work for the remaster. I also wanted a better collision detection system since it sounded like there was a lot of issues with the method of using an invisible collision plane below the player.
 
@@ -234,7 +234,7 @@ I was concerned that moving an NPC every frame would cause a big performance hit
 
 So that’s how I detect collision my mod: hanging a tiny invisible, mute, dumb vampire off the front of the boat until it bashes into something 😉.
 
-## Rowing the Boat
+### Rowing the Boat
 
 While moving the boat automatically through the MessageBox menu was convenient, it was also cumbersome and awkward to interact with. I wanted to create a way to really make the player feel like they are rowing the boat for realism and ✨_immersion_✨.
 
@@ -269,7 +269,7 @@ I initially went with the [Darkness](https://en.uesp.net/wiki/Oblivion:Darkness)
     </video>
 </p>
 
-## Realistic Movement
+### Realistic Movement
 
 When the Row spell is cast by the player while they are on the boat, it doesn’t immediately shoot the boat forward at it’s maximum speed. Instead, the Row spell cast starts a timer where, for a short time period, it adds a small amount of “force” to the boat’s current velocity every game frame. This is to simulate the effect of oars pushing through the water. After constantly rowing for a while, velocity will accumulate until the boat reaches its maximum velocity.
 
@@ -323,7 +323,7 @@ if (Rowing == 0 && AutoRowing == 0 && BoatMoving == 2)
 
 Technically, my quest script doesn’t run every game frame though. The special quest variable [`fQuestDelayTime`](https://cs.uesp.net/wiki/FQuestDelayTime) configures how often the script is run while the game is running. To save CPU resources, I try to keep this to a high value when the player is not near the boat, but once they start moving the boat I ramp it down to a value that would run the script at roughly 60 times per second.
 
-## Dragging the Boat
+### Dragging the Boat
 
 The largest and most prominent river in the game: the [Niben River](https://en.uesp.net/wiki/Oblivion:Niben_River) is actually [blocked by the city Layawiin](https://en.uesp.net/wiki/Oblivion:Niben_River#Lower_Niben) in the game, which makes it impossible to row the boat all the way on the river that goes from the Imperial City into the [Topal Bay](https://en.uesp.net/wiki/Oblivion:Topal_Bay) at the bottom of the map. I knew I would need to develop an alternative way to move the boat for this reason when I set out to make this mod.
 
@@ -357,7 +357,7 @@ While dragging the boat, the player gains 200 pounds of encumbrance. This is to 
 
 The encumbrance is achieved by adding a special “Rowboat” item to the player’s inventory. The item is scripted so if it is dropped from the player’s inventory then the dragging stops. It also has the same rowboat model assigned to it through UE4SS TesSyncMapInjector so it even looks like a rowboat in the player’s inventory preview.
 
-## Summoning the Boat
+### Summoning the Boat
 
 One of the first mods I downloaded for Oblivion Remastered was [PushTheWinButton](https://next.nexusmods.com/profile/PushTheWinButton?gameId=7587)’s excellent [Horse Whistle - Summon and Follow](https://www.nexusmods.com/oblivionremastered/mods/153) . There’s a reason pretty much every game these days that has horse mounts includes some sort of “whistle” mechanic that allows the player to summon their horse to their position immediately. While not exactly realistic, it’s just one of those things that smooths over gameplay so it’s not such a chore just to get playing.
 
@@ -371,7 +371,7 @@ The difference between these two options is that “Summon Boat” tries to plac
 
 I also found that I needed to disable the boat and then re-enable it after moving it, otherwise sometimes the boat would weirdly not have any collision so the player could walk right through it and it would not be activatable.
 
-## Rocking the Boat
+### Rocking the Boat
 
 Inspired by the classic Oblivion mod [QQuix - Rock rock rock your ship](https://www.nexusmods.com/oblivion/mods/29649), I wanted to add even more realism to the mod by adding a gentle rocking animation to the boat while it is in the water.
 
@@ -500,7 +500,7 @@ set PlayerWeightRollOffset to PlayerWeightRollOffset + ((TargetPlayerWeightRollO
 
 All of the rocking motion stops if the boat collides with land or if the player moves far enough away from the boat to save unnecessary processing. For players that want to minimize the performance impact, I also added a setting in the MessageBox menu to turn off the rocking animation.
 
-## Boat Upgrades
+### Boat Upgrades
 
 The rowboat itself is purchasable from [Sergius Verus](https://en.uesp.net/wiki/Oblivion:Sergius_Verus) at the [Three Brothers Trade Goods](https://en.uesp.net/wiki/Oblivion:Three_Brothers_Trade_Goods) in the Market District of the Imperial City. This was implemented similarly to how [buying houses in the game works](https://en.uesp.net/wiki/Oblivion:Buy_a_house_in_the_Imperial_City). You purchase a deed document from the trader which has a script attached to it with an [`OnAdd`](https://cs.uesp.net/wiki/OnAdd) block that triggers when it is added to the player’s inventory which then changes the owner of the house to the player and gives them the key. In the case of my rowboat, it just flips a variable in my script which makes the rowboat operable by the player and removes the for-sale sign next to the boat where it is docked in the [Waterfront District](https://en.uesp.net/wiki/Oblivion:Waterfront_District).
 
@@ -544,11 +544,11 @@ set RYB.SeatY to RYB.BoatY + RYB.TempY
 set RYB.SeatZ to RYB.BoatZ + RYB.TempZ + RYB.RockZOffset
 ```
 
-## Mod Release
+### Mod Release
 
 The finally released the mod on June 4th, 2025 [on Nexus Mods](https://www.nexusmods.com/oblivionremastered/mods/4273) and [made a post on the r/oblivionmods subreddit](https://www.reddit.com/r/oblivionmods/comments/1l3pg6z/row_your_boat_usable_rowboat_mod/). It was fun seeing the response. A lot of people were excited to see a mod of this complexity released. I think they saw it as a sign that Oblivion Remastered was more mod-friendly than the doubters believed, and we would all see more sophisticated mods coming out for Oblivion Remastered soon. [Rock Paper Shotgun even featured my mod](https://www.rockpapershotgun.com/oblivion-remastered-your-own-personal-rideable-rowboat-mod-sailing-around-cyrodiil-as-magical-mariner), which was cool!
 
-## The Mysterious Case of The Spontaneously Duplicating Rowboats
+### The Mysterious Case of The Spontaneously Duplicating Rowboats
 
 After release, I made a few updated versions that fixed various bugs that were reported by the community in the [bug tracker](https://www.nexusmods.com/oblivionremastered/mods/4273?tab=bugs). But, one bug that was _really_ stumping me was the issue where players would report that sometimes their boat would spontaneously duplicate itself rendering both boats broken and unusable.
 
@@ -570,7 +570,7 @@ So, I suspect it has something to do with Unreal Engine getting Construction Set
 
 I haven’t gotten any reports from users that the boat duplication bug is still happening after I released a new version with the UE4SS script. I still get the occasional user reporting crashes that happen, but it’s hard to prove what mod in their load order is really causing the crash, and many users report my mod because they see the log messages my script writes in their UE4SS logs. Personally, I didn’t experience any crashes with a bare-bones load order with just my mod and it’s dependencies installed.
 
-## Future Work
+### Future Work
 
 Unless I get infatuated with Oblivion modding again, I don’t think I’ll be adding anything more to the mod anytime soon. But, if I were to, I think there’s a lot more I could add to improve the mod:
 
