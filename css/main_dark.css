@@ -45,7 +45,8 @@ img.icon {
   background-color: #222 !important;
 }
 
-.isso-postbox input {
+.isso-postbox input[type="text"],
+.isso-postbox input[type="email"] {
   background-color: #222 !important;
 }
 
@@ -63,7 +64,9 @@ a.no-decoration:hover {
   text-decoration: none;
 }
 
-.subscribe-form input[type="submit"] {
+.subscribe-form input[type="submit"],
+.isso-postbox input[type="button"],
+.isso-postbox input[type="submit"] {
   color: black;
   filter: invert(90%);
 }
