@@ -512,8 +512,12 @@ I spent wayyy too long fiddling with the positioning of these attachments relati
 
 <p>
  <div class="row">
-  <img alt="Screenshot of the rowboat pitched and tilted at an extreme angle and the lamp misplaced too far right and down from where it should be" src="/img/blog/rowyourboat-lamp-misplaced.jpg" />
-  <img alt="Screenshot of the rowboat pitched and tilted at an extreme angle and the chest and stool misplaced too far left and back from where they should be" src="/img/blog/rowyourboat-chest-seat-misplaced.jpg" />
+  <figure>
+    <img alt="Screenshot of the rowboat pitched and tilted at an extreme angle and the lamp misplaced too far right and down from where it should be" src="/img/blog/rowyourboat-lamp-misplaced.jpg" />
+  </figure>
+  <figure>
+    <img alt="Screenshot of the rowboat pitched and tilted at an extreme angle and the chest and stool misplaced too far left and back from where they should be" src="/img/blog/rowyourboat-chest-seat-misplaced.jpg" />
+  </figure>
  </div>
 </p>
 
