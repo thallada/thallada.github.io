@@ -1,37 +1,35 @@
 /* Dark theme */
 
 html {
-  filter: invert(90%);
   background-color: rgba(10, 10, 10, 0.9);
 }
 
-img:not(.icon), video, div.video-container {
-  filter: invert(100%);
+body {
+  background-color: #222222 !important;
 }
 
-img:not(.icon) {
-  opacity: .90;
-  transition: opacity .5s ease-in-out;
-}
-
-img:hover:not(.icon) {
-  opacity: 1;
-}
-
-a:not(.card), a:hover:not(.card) {
-  filter: invert(100%);
-}
-
-a:not(.card) img:not(.icon) {
-  filter: none;
+.root {
+  color: #afafaf !important;
 }
 
 .card {
-  box-shadow: 0 1px 2px #fff !important;
+  box-shadow: 0 1px 2px #5e5e5e !important;
+  background-color: #1a1a1a !important;
 }
 
 .post pre {
-  background-color: #fff !important;
+  background-color: #271a26 !important;
+  border: 1px solid #354535 !important;
+}
+
+.post code {
+  background-color: #271a26 !important;
+  border: 1px solid #354535 !important;
+}
+
+.post pre code {
+  background-color: #271a26 !important;
+  border: none !important;
 }
 
 .post a code {
