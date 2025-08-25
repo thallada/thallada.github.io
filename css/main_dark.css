@@ -17,6 +17,10 @@ body {
   background-color: #1a1a1a !important;
 }
 
+img.icon {
+  filter: invert(90%);
+}
+
 .post pre {
   background-color: #271a26 !important;
   border: 1px solid #354535 !important;
@@ -35,4 +39,31 @@ body {
 .post a code {
   background-color: #222 !important;
   border: 1px solid #333 !important;
+}
+
+.isso-postbox textarea {
+  background-color: #222 !important;
+}
+
+.isso-postbox input {
+  background-color: #222 !important;
+}
+
+a.no-decoration {
+  color: #afafaf;
+  display: block;
+}
+
+a.no-decoration:visited {
+  color: #afafaf;
+}
+
+a.no-decoration:hover {
+  color: #afafaf;
+  text-decoration: none;
+}
+
+input[type="submit"] {
+  color: black;
+  filter: invert(90%);
 }
