@@ -63,7 +63,12 @@ a.no-decoration:hover {
   text-decoration: none;
 }
 
-input[type="submit"] {
+.subscribe-form input[type="submit"] {
   color: black;
   filter: invert(90%);
+}
+
+.subscribe-form input[type="text"],
+.subscribe-form input[type="email"] {
+  background-color: #222 !important;
 }
